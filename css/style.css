@@ -1,6 +1,7 @@
 * {margin: 0; padding: 0; box-sizing: border-box; }
 ul, ol {list-style: none;}
 a {text-decoration: none;color: inherit;}
+button{background:none;border:none;}
 
 body{font-family: Paperozi, serif; font-weight:300; color:#222;}
 
@@ -24,12 +25,36 @@ header .topset .login_box a:nth-child(3){ padding-left:18px;}
 .container .gnb ul li{font-size:18px; font-weight:500; width:100%; text-align: center;position: relative}
 .container .gnb ul li:last-child{font-weight:700;background: linear-gradient(90deg, #7B5CFF, #2ED1C2);  -webkit-background-clip: text;  -webkit-text-fill-color: transparent; }
 .container .gnb ul li a{display: block; padding:18px 0;}
-.container .gnb ul li a:hover{}
-.container .gnb ul li::before {content: ""; position: absolute; top: -1px; left: 50%; width: 0; height: 5px; font-weight:700; background: linear-gradient(90deg, #7b5cff, #2ed8b6); transform: translateX(-50%); transition: 0.3s;
+.container .gnb ul li a:hover{font-weight:700;}
+.container .gnb ul li::before {content: ""; position: absolute; top: -1px; left: 50%; width: 0; height: 5px;  background: linear-gradient(90deg, #7b5cff, #2ed8b6); transform: translateX(-50%); transition: 0.3s;
 }
 /* hover 시 라인 등장 */
 .container .gnb ul li:hover::before {width: 100%;}
 
 
-#hero{width: 100%;height:550px; background:url(../images/hero.png)no-repeat;;}
-.hero_slider{width:1400px; margin:0 auto;}
+#hero{width: 100%;height:550px; background:url(../images/hero2.png) center no-repeat;position: relative;}
+.hero_container{width:1400px; position: absolute; left:50%; transform: translateX(-50%);}
+.hero_slider{display: flex; justify-content:space-between; }
+.hero_slider .hero_txt{ color:#fff;padding-top:100px;}
+.hero_slider .hero_visual{padding-top:50px;}
+.hero_slider .hero_txt p.st{font-size:62px; font-weight:200;margin-bottom:10px;}
+.hero_slider .hero_txt p.st span{font-weight:600;}
+.hero_slider .hero_txt p{font-size:20px;margin-bottom:40px;}
+.hero_slider .hero_txt a{ color:#fff; font-size:16px; display: inline-block; border:1px solid #fff; border-radius:50px; padding:12px 32px;}
+.hero_slider .hero_txt a:hover{background:#fff; color:#222;font-weight:600}
+
+.hero_control{ position: absolute; bottom:115px; display: flex;height:7px; align-items: center;}
+.hero_bullet{display: flex;align-items: cernter;}
+.hero_bullet .hero_bullet_btn{padding:0 3px;}
+.hero_paging{display: flex; align-items: cernter;}
+.hero_fraction{color:#fff; font-size:12px; margin-left:15px;}
+.hero_nav{display: flex; align-items: center;}
+.hero_nav button:first-child{margin-right:20px;margin-left:32px;}
+
+.pickly_pick{position: absolute; color:#fff; bottom:0;display: flex;}
+.pickly_pick h5{background:#fff;font-size:16px; color:#3F2B94; border-radius:50px; padding:8px 15px;}
+.pickly_pick h5 span{background: linear-gradient(90deg, #7B5CFF, #2ED1C2);  -webkit-background-clip: text;  -webkit-text-fill-color: transparent; }
+.pickly_pick ul{display: flex; align-items: center; margin-left:50px;}
+.pickly_pick ul li a{margin-right:20px; }
+.pickly_pick ul li a:hover{border-bottom:1px solid #fff; }
+

@@ -20,17 +20,34 @@ header .topset .login_box a:nth-child(3){ padding-left:18px;}
 .container h1{margin:0 auto 30px;width: 208px;}
 
 
-.container .gnb{width: 100%; border-top:1px solid #ddd; border-bottom:1px solid #ddd;}
-.container .gnb ul{display: flex; width:1400px; margin:0 auto; justify-content: space-evenly; }
-.container .gnb ul li{font-size:18px; font-weight:500; width:100%; text-align: center;position: relative}
-.container .gnb ul li:last-child{font-weight:700;background: linear-gradient(90deg, #7B5CFF, #2ED1C2);  -webkit-background-clip: text;  -webkit-text-fill-color: transparent; }
-.container .gnb ul li a{display: block; padding:18px 0;}
-.container .gnb ul li a:hover{font-weight:700;}
-.container .gnb ul li::before {content: ""; position: absolute; top: -1px; left: 50%; width: 0; height: 5px;  background: linear-gradient(90deg, #7b5cff, #2ed8b6); transform: translateX(-50%); transition: 0.3s;
+.container .gnb{width: 100%; border-top:1px solid #ddd; border-bottom:1px solid #ddd; position: relative; z-index:10;}
+.container .gnb > ul{display: flex; width:1400px; margin:0 auto; justify-content: space-evenly; }
+.container .gnb > ul > li{font-size:18px; font-weight:500; width:100%; text-align: center;position: relative}
+.container .gnb ul li.ai_recom{font-weight:700;background: linear-gradient(90deg, #7B5CFF, #2ED1C2);  -webkit-background-clip: text;  -webkit-text-fill-color: transparent; }
+.container .gnb > ul > li > a{display: block; padding:18px 0;}
+.container .gnb > ul > li > a:hover{font-weight:700;}
+.container .gnb > ul > li::before {content: ""; position: absolute; top: -1px; left: 50%; width: 0; height: 5px;  background: linear-gradient(90deg, #7b5cff, #2ed8b6); transform: translateX(-50%); transition: 0.3s;
 }
 /* hover 시 라인 등장 */
-.container .gnb ul li:hover::before {width: 100%;}
+.container .gnb ul > li:hover::before {width: 100%;}
+.container .gnb .lnb{width: 1400px; display: flex; position: absolute; background: #E9E4FF; padding-left:83px; border-radius: 0 50px 50px;transition: 0.5s; opacity: 0; visibility: hidden;}
+.container .gnb .lnb li{ height: 100%; padding-right:40px; font-size:16px;}
+.container .gnb .lnb li a{display:block; width: 100%; height: 100%;padding:20px 0;}
 
+.container .gnb .lnb.align2{position:absolute; left:-100%;}
+.container .gnb .lnb.align3{position:absolute; left:-200%;}
+.container .gnb .lnb.align4{position:absolute; left:-300%;}
+.container .gnb .lnb.align5{position:absolute; left:-400%;}
+.container .gnb .lnb.align6{position:absolute; left:-500%;}
+
+.container .gnb > ul > li:hover{font-weight:700;}
+.container .gnb > ul > li:hover .lnb{opacity: 1; visibility: visible; font-weight:400;}
+.container .gnb > ul > li .lnb a:hover{background: url(../images/nav_dot.png) no-repeat 0px -3px; color:#7B5CFF; font-weight:700;}
+
+
+
+
+/**********************히어로************************/
 
 #hero{width: 100%;height:550px; background:url(../images/hero.png) no-repeat left / cover;position: relative;}
 .hero_container{width:1400px; position: absolute; left:50%; transform: translateX(-50%);}
@@ -132,7 +149,6 @@ header .topset .login_box a:nth-child(3){ padding-left:18px;}
 
 
 
-
 /**********************************1번째 섹션 ********************************/
 .align{display: flex;}
 #sectionbox{width: 1400px; margin:0 auto; padding:110px 0;} 
@@ -208,9 +224,77 @@ header .topset .login_box a:nth-child(3){ padding-left:18px;}
 .list_setting .set_btn .reset{display: flex; align-items: center; padding-right:20px; border-right:1px solid #ddd;}
 .list_setting .set_btn .setting{display: flex; align-items: center; padding-left:20px;}
 
+.list_setting .set_btn a.reset img {
+    /* 1. 회전 중심축을 정확히 중앙으로 고정 */
+    transform-origin: 40%;
+    
+    /* 2. 블록 요소로 변경하여 레이아웃 축 고정 */
+    display: inline-block; 
+    vertical-align: middle;
+
+    transition: all 0.5s ease-in-out;
+    opacity: 0.7;
+    transform: scale(1) rotate(0deg);
+}
+
+.list_setting .set_btn a.reset:hover img {
+    opacity: 1;
+    /* 3. scale과 rotate를 함께 쓰면 축이 미세하게 떨릴 수 있으므로 
+       제자리 회전이 최우선이라면 scale 값을 조정하거나 아래처럼 작성합니다. */
+    transform: scale(1.1) rotate(720deg);
+}
+
+
+/* 1. 카드를 감싸는 li (빛이 밖으로 나가지 않게 설정) */
+.section_02 .rec_list ul li {
+    position: relative;
+    overflow: hidden; /* 중요: 빛이 카드 안에서만 움직이게 함 */
+}
+
+/* 2. 빛 효과를 만드는 가상 요소 */
+.section_02 .rec_list ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* 처음에 왼쪽 밖에 숨어 있음 */
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg); /* 빛을 사선으로 기울임 */
+    transition: none;
+    z-index: 1;
+}
+
+/* 3. 호버했을 때 빛이 왼쪽에서 오른쪽으로 슥 지나감 */
+.section_02 .rec_list ul li:hover::before {
+    left: 150%;
+    transition: all 0.6s ease;
+}
+
+/* 4. 호버 시 카드만 아주 살짝 선명해지도록 (선택 사항) */
+.section_02 .rec_list ul li:hover {
+    filter: brightness(1.1);
+    transition: filter 0.3s;
+}
+
+.section_02 .rec_list ul li:hover {
+    filter: brightness(1.1);
+    transition: filter 0.3s;
+}
+.section_02 .rec_list ul li:hover .list_img {transform: scale(1.1); ; }
+.section_02 .rec_list ul li:hover {}
+
+.section_02 .rec_list ul li .list_img{transition: all 0.5s ease-in-out;}
+
 
 /**********************************3번째 섹션 ********************************/
 .section_03{background:#f2f2f2 url(../images/bg_section4.png) no-repeat top / cover; height:813px;}
+
 .review{display: flex; color:#fff;}
 .review_tit{width: 287px;margin:50px 68px 0 125px;}
 .review_tit .review_txt{ margin-bottom:110px; }
@@ -245,6 +329,7 @@ header .topset .login_box a:nth-child(3){ padding-left:18px;}
 
 .rdate_box{display: flex; justify-content:space-between;}
 .rdate_box p span.add{font-size:5100px; } 
+
 
 /******************************푸터***********************/
 footer{background:#f2f2f2;}

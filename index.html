@@ -34,12 +34,72 @@
         <h1><a href="#"><img src="images/logo.png" alt="픽클리"></a></h1>
         <nav class="gnb">
             <ul>
-                <li><a href="#">혼자하기</a></li>
-                <li><a href="#">데이트코스</a></li>
-                <li><a href="#">가족나들이</a></li>
-                <li><a href="#">아이와함께</a></li>
-                <li><a href="#">게시판</a></li>
-                <li><a href="#">ai추천</a></li>
+                <li>
+                    <a href="#">혼자하기</a>
+                    <ul class="lnb">
+                        <li><a href="#">요즘 핫한</a></li>
+                        <li><a href="#">근처에서 찾기</a></li>
+                        <li><a href="#">가볍게 즐기기</a></li>
+                        <li><a href="#">취미/힐링</a></li>
+                        <li><a href="#">혼밥 맛집</a></li>
+                        <li><a href="#">집에서 즐기기</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">데이트코스</a>
+                    <ul class="lnb align2">
+                        <li><a href="#">분위기 좋은 곳</a></li>
+                        <li><a href="#">이색 데이트</a></li>
+                        <li><a href="#">맛집 데이트</a></li>
+                        <li><a href="#">사진 스팟</a></li>
+                        <li><a href="#">산책/야외 데이트</a></li>
+                        <li><a href="#">실내 데이트</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">가족나들이</a>
+                    <ul class="lnb align3">
+                        <li><a href="#">야외 나들이</a></li>
+                        <li><a href="#">체험/놀이시설</a></li>
+                        <li><a href="#">가족 외식 추천</a></li>
+                        <li><a href="#">쇼핑/복합몰</a></li>
+                        <li><a href="#">근교 나들이</a></li>
+                        <li><a href="#">전시/공연</a></li>
+                    </ul>
+                </li>    
+                <li>
+                    <a href="#">아이와함께</a>
+                    <ul class="lnb align4">
+                        <li><a href="#">영유아 추천 (0~3세)</a></li>
+                        <li><a href="#">유아/아동 활동</a></li>
+                        <li><a href="#">교육/체험</a></li>
+                        <li><a href="#">키즈카페</a></li>
+                        <li><a href="#">실내 놀거리</a></li>
+                        <li><a href="#">야외 놀이터</a></li>
+                        <li><a href="#">짧은 외출 코스</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">게시판</a>
+                    <ul class="lnb align5">
+                        <li><a href="#">후기</a></li>
+                        <li><a href="#">인증샷</a></li>
+                        <li><a href="#">질문하기</a></li>
+                        <li><a href="#">자유게시판</a></li>
+                        <li><a href="#">인기글</a></li>
+                        <li><a href="#">공지사항</a></li>
+                    </ul>
+                </li>
+                <li class="ai_recom">
+                    <a href="#">ai추천</a>
+                    <ul class="lnb align6">
+                        <li><a href="#">맞춤 추천 받기</a></li>
+                        <li><a href="#">취향 분석</a></li>
+                        <li><a href="#">내 취향 저장</a></li>
+                        <li><a href="#">추천 기록</a></li>
+                        <li><a href="#">추천 설정</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -395,17 +455,40 @@
         });
 
         // 이미 선언된 swiper 변수가 있다고 가정합니다.
-    const stopBtn = document.querySelector('.btn-stop');
+        const stopBtn = document.querySelector('.btn-stop');
 
-     stopBtn.addEventListener('click', function() {
-    if (swiper.autoplay.running) {
-      swiper.autoplay.stop();
-      this.classList.add('is-paused'); // 일시정지 상태 클래스 추가
-    } else {
-      swiper.autoplay.start();
-      this.classList.remove('is-paused'); // 재생 상태 클래스 제거
-    }
-  });
+        stopBtn.addEventListener('click', function() {
+        if (swiper.autoplay.running) {
+        swiper.autoplay.stop();
+        this.classList.add('is-paused'); // 일시정지 상태 클래스 추가
+        } else {
+        swiper.autoplay.start();
+        this.classList.remove('is-paused'); // 재생 상태 클래스 제거
+        }
+    });
+
+    window.addEventListener('scroll', function() {
+        const section = document.querySelector('.section_03');
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        // 섹션이 화면에 보이고 있을 때만 실행
+        if (sectionTop < windowHeight && sectionTop > -813) {
+        
+        /* [수정 포인트] 
+            windowHeight - sectionTop은 섹션이 바닥에서 올라온 거리입니다.
+            여기서 300을 빼면, 섹션이 바닥에서 300px 이상 올라오기 전까지는 
+            moveX가 0 이하가 되어 움직이지 않습니다.
+        */
+        let startOffset = 300; // 숫자가 클수록 더 늦게(스크롤을 더 내려야) 시작합니다.
+        let moveX = Math.max(0, (windowHeight - sectionTop) - startOffset) * 1.2; 
+        
+        // 기존 로직: 500px 대기 장소에서 왼쪽으로 이동하되 0에서 멈춤
+        let currentPos = Math.max(0, 500 - moveX);
+        
+        section.style.backgroundPosition = `${currentPos}px center`;
+        }
+    });
     </script>
 </body>
 </html>

@@ -3,9 +3,10 @@ ul, ol {list-style: none;}
 a {text-decoration: none;color: inherit;}
 button{background:none;border:none;}
 
+html{scroll-behavior: smooth;}
 body{font-family: Paperozi, serif; font-weight:300; color:#222;}
 
-.container{}
+.container{ }
 header .topset {display: flex; justify-content: space-between; font-size: 14px;font-weight: 700; padding:16px 0;width:1400px; margin:0 auto;}
 header .topset .Fav_box {}
 header .topset .login_box {display: flex; }
@@ -346,8 +347,6 @@ footer{background:#f2f2f2;}
 .foot_service li:last-child{border:none;}
 .foot_service li a{}
 .foot_copyright{font-size:12px;}
-
-
 
 
 

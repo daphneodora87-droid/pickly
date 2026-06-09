@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickly - AI추천</title>
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/sub.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+</head>
+<body>
+    <header class="container">
+        <div class="topset">
+            <div class="Fav_box"><a href="favorites.html"><img src="images/icon_fav.png" alt="즐겨찾기">Favorites</a></div>
+            <div class="login_box">
+                <div class="login">
+                    <a href="login.html"><img src="images/icon_login.png" alt="로그인">LOGIN</a>
+                    <a href="join.html" class="log_line"><img src="images/icon_join.png" alt="회원가입">JOIN</a>
+                    <a href="sitemap.html"><img src="images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
+                </div>
+                <div class="logout">
+                    <a href="login.html"><img src="images/icon_login.png" alt="로그아웃">LOGOUT</a>
+                    <a href="join.html" class="log_line"><img src="images/icon_join.png" alt="회원가입">JOIN</a>
+                    <a href="sitemap.html"><img src="images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
+                </div>
+            </div>
+        </div>
+        <h1><a href="index.html"><img src="images/logo.png" alt="픽클리"></a></h1>
+        <nav class="gnb"><ul><li><a href="sub_01.html">혼자하기</a><ul class="lnb"><li><a href="sub_01.html">요즘 핫한</a></li><li><a href="sub_01.html">근처에서 찾기</a></li><li><a href="sub_01.html">가볍게 즐기기</a></li><li><a href="sub_01.html">취미/힐링</a></li><li><a href="sub_01.html">혼밥 맛집</a></li><li><a href="sub_01.html">집에서 즐기기</a></li></ul></li><li><a href="sub_02.html">데이트코스</a><ul class="lnb align2"><li><a href="sub_02.html">분위기 좋은 곳</a></li><li><a href="sub_02.html">이색 데이트</a></li><li><a href="sub_02.html">맛집 데이트</a></li><li><a href="sub_02.html">사진 스팟</a></li><li><a href="sub_02.html">산책/야외 데이트</a></li><li><a href="sub_02.html">실내 데이트</a></li></ul></li><li><a href="sub_03.html">가족나들이</a><ul class="lnb align3"><li><a href="sub_03.html">야외 나들이</a></li><li><a href="sub_03.html">체험/놀이시설</a></li><li><a href="sub_03.html">가족 외식 추천</a></li><li><a href="sub_03.html">쇼핑/복합몰</a></li><li><a href="sub_03.html">근교 나들이</a></li><li><a href="sub_03.html">전시/공연</a></li></ul></li><li><a href="sub_04.html">아이와함께</a><ul class="lnb align4"><li><a href="sub_04.html">영유아 추천 (0~3세)</a></li><li><a href="sub_04.html">유아/아동 활동</a></li><li><a href="sub_04.html">교육/체험</a></li><li><a href="sub_04.html">키즈카페</a></li><li><a href="sub_04.html">실내 놀거리</a></li><li><a href="sub_04.html">야외 놀이터</a></li></ul></li><li><a href="board.html">게시판</a><ul class="lnb align5"><li><a href="board.html">후기</a></li><li><a href="board.html">인증샷</a></li><li><a href="board.html">질문하기</a></li><li><a href="board.html">자유게시판</a></li><li><a href="board.html">인기글</a></li><li><a href="board.html">공지사항</a></li></ul></li><li class="ai_recom"><a href="ai.html" class="is-active">ai추천</a><ul class="lnb align6"><li><a href="ai.html">맞춤 추천 받기</a></li><li><a href="ai.html">취향 분석</a></li><li><a href="ai.html">내 취향 저장</a></li><li><a href="ai.html">추천 기록</a></li><li><a href="ai.html">추천 설정</a></li></ul></li></ul></nav>
+    </header>
+    <div class="ai-hero">
+        <div class="scontainer">
+            <div class="ai-hero-copy">
+                <span>Pickly AI Recommendation</span>
+                <h2>오늘의 상황을 말하면<br>AI가 하루 코스를 조합해줘요</h2>
+                <p>기분, 시간, 동행, 위치 신호를 함께 읽어서 지금 가장 어울리는 장소와 활동을 추천합니다.</p>
+                <div class="ai-hero-actions">
+                    <a href="#ai-console">추천 시작하기</a>
+                    <a href="guide.html">이용 가이드</a>
+                </div>
+            </div>
+            <div class="ai-orbit" aria-hidden="true">
+                <div class="ai-core"><span class="material-symbols-outlined">auto_awesome</span><strong>AI</strong></div>
+                <p class="node n1">Mood</p>
+                <p class="node n2">Place</p>
+                <p class="node n3">Time</p>
+                <p class="node n4">Taste</p>
+            </div>
+        </div>
+    </div>
+    <section class="ai-console-section" id="ai-console">
+        <div class="scontainer">
+            <div class="ai-console">
+                <div class="ai-prompt-panel">
+                    <div class="panel-head">
+                        <span class="material-symbols-outlined">neurology</span>
+                        <div>
+                            <h3>AI 추천 콘솔</h3>
+                            <p>원하는 하루를 자연스럽게 입력해보세요.</p>
+                        </div>
+                    </div>
+                    <label class="ai-prompt-box">
+                        <span>오늘은 어떤 하루가 필요해요?</span>
+                        <textarea placeholder="예: 퇴근 후 2시간 정도, 조용하지만 분위기 있는 데이트 코스 추천해줘. 너무 멀지 않고 사진도 예쁘게 나왔으면 좋겠어."></textarea>
+                    </label>
+                    <div class="ai-signal-grid">
+                        <button type="button">혼자</button>
+                        <button type="button" class="active">데이트</button>
+                        <button type="button">가족</button>
+                        <button type="button">아이와</button>
+                        <button type="button" class="active">저녁</button>
+                        <button type="button">실내</button>
+                        <button type="button">산책</button>
+                        <button type="button">사진</button>
+                    </div>
+                    <div class="ai-console-actions">
+                        <a href="search.html?ai=true">추천 생성하기</a>
+                        <a href="ai.html?mode=settings">취향 설정</a>
+                    </div>
+                </div>
+                <div class="ai-result-panel">
+                    <div class="ai-result-top">
+                        <span>LIVE MATCH</span>
+                        <strong>92%</strong>
+                    </div>
+                    <h3>성수 노을 감성 코스</h3>
+                    <p>카페에서 시작해 작은 전시를 보고, 해질녘 서울숲 산책으로 마무리하는 루트예요.</p>
+                    <ol>
+                        <li><em>01</em><span>성수 카페 거리</span><strong>15:00</strong></li>
+                        <li><em>02</em><span>팝업 전시</span><strong>17:00</strong></li>
+                        <li><em>03</em><span>서울숲 노을 산책</span><strong>18:30</strong></li>
+                    </ol>
+                    <a href="place_detail.html?title=%EC%84%B1%EC%88%98%20%EB%85%B8%EC%9D%84%20%EA%B0%90%EC%84%B1%20%EC%BD%94%EC%8A%A4">자세히보기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ai-insight-section">
+        <div class="scontainer">
+            <div class="ai-section-title">
+                <span>AI INSIGHT</span>
+                <h3>추천에 반영된 취향 신호</h3>
+            </div>
+            <div class="ai-insight-grid">
+                <article><span class="material-symbols-outlined">favorite</span><strong>분위기 우선</strong><p>조용함, 감성, 사진 스팟 태그가 강하게 반영됐어요.</p></article>
+                <article><span class="material-symbols-outlined">route</span><strong>짧은 이동</strong><p>도보와 대중교통으로 이어지는 동선을 우선했어요.</p></article>
+                <article><span class="material-symbols-outlined">schedule</span><strong>저녁 시간대</strong><p>노을과 야경이 예쁜 시간대를 기준으로 추천했어요.</p></article>
+            </div>
+        </div>
+    </section>
+    <section class="ai-feed-section">
+        <div class="scontainer">
+            <div class="ai-section-title">
+                <span>RECOMMEND QUEUE</span>
+                <h3>AI가 준비한 다음 추천</h3>
+            </div>
+            <div class="ai-feed-list">
+                <a href="place_detail.html?title=%EB%B9%84%20%EC%98%A4%EB%8A%94%20%EB%82%A0%20%EC%8B%A4%EB%82%B4%20%EB%8D%B0%EC%9D%B4%ED%8A%B8"><strong>비 오는 날 실내 데이트</strong><span>전시 · 티룸 · 조용한 저녁</span><em>87%</em></a>
+                <a href="place_detail.html?title=%ED%98%BC%EC%9E%90%20%ED%9A%8C%EB%B3%B5%ED%95%98%EB%8A%94%20%ED%9C%B4%EC%8B%9D%20%EC%BD%94%EC%8A%A4"><strong>혼자 회복하는 휴식 코스</strong><span>숲길 · 도서관 · 스파</span><em>84%</em></a>
+                <a href="place_detail.html?title=%EC%95%84%EC%9D%B4%EC%99%80%20%EC%A7%A7%EC%9D%80%20%EC%99%B8%EC%B6%9C%20%EC%BD%94%EC%8A%A4"><strong>아이와 짧은 외출 코스</strong><span>체험 · 실내 놀이 · 간식</span><em>81%</em></a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="foot">
+            <img src="images/foot_logo.png" alt="">
+            <div class="foot_tit">Pickly 더 나은 하루를 위한 추천 서비스</div>
+            <div class="foot_add">
+                <p><strong>이메일</strong> contact@pickly.com</p>
+                <p><span>운영시간 </span> 평일 09:00 - 18:00</p>
+            </div>
+            <ul class="foot_service">
+                <li><a href="terms.html">이용약관</a></li>
+                <li><a href="privacy.html">개인정보처리방침</a></li>
+                <li><a href="support.html">고객센터</a></li>
+                <li><a href="partner.html">제휴 문의 서비스</a></li>
+                <li><a href="guide.html">이용 가이드</a></li>
+            </ul>
+            <div class="foot_copyright">© 2026 Pickly. Designed by KimHyeok.</div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickly - 가족나들이</title>
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/sub.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+</head>
+<body>
+    <header class="container">
+        <div class="topset">
+            <div class="Fav_box"><a href="favorites.html"><img src="images/icon_fav.png" alt="즐겨찾기">Favorites</a></div>
+            <div class="login_box">
+                <div class="login">
+                    <a href="login.html"><img src="images/icon_login.png" alt="로그인">LOGIN</a>
+                    <a href="join.html" class="log_line"><img src="images/icon_join.png" alt="회원가입">JOIN</a>
+                    <a href="sitemap.html"><img src="images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
+                </div>
+                <div class="logout">
+                    <a href="login.html"><img src="images/icon_login.png" alt="로그아웃">LOGOUT</a>
+                    <a href="join.html" class="log_line"><img src="images/icon_join.png" alt="회원가입">JOIN</a>
+                    <a href="sitemap.html"><img src="images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
+                </div>
+            </div>
+        </div>
+        <h1><a href="index.html"><img src="images/logo.png" alt="픽클리"></a></h1>
+        <nav class="gnb"><ul><li><a href="sub_01.html">혼자하기</a><ul class="lnb"><li><a href="sub_01.html">요즘 핫한</a></li><li><a href="sub_01.html">근처에서 찾기</a></li><li><a href="sub_01.html">가볍게 즐기기</a></li><li><a href="sub_01.html">취미/힐링</a></li><li><a href="sub_01.html">혼밥 맛집</a></li><li><a href="sub_01.html">집에서 즐기기</a></li></ul></li><li><a href="sub_02.html">데이트코스</a><ul class="lnb align2"><li><a href="sub_02.html">분위기 좋은 곳</a></li><li><a href="sub_02.html">이색 데이트</a></li><li><a href="sub_02.html">맛집 데이트</a></li><li><a href="sub_02.html">사진 스팟</a></li><li><a href="sub_02.html">산책/야외 데이트</a></li><li><a href="sub_02.html">실내 데이트</a></li></ul></li><li><a href="sub_03.html" class="is-active">가족나들이</a><ul class="lnb align3"><li><a href="sub_03.html">야외 나들이</a></li><li><a href="sub_03.html">체험/놀이시설</a></li><li><a href="sub_03.html">가족 외식 추천</a></li><li><a href="sub_03.html">쇼핑/복합몰</a></li><li><a href="sub_03.html">근교 나들이</a></li><li><a href="sub_03.html">전시/공연</a></li></ul></li><li><a href="sub_04.html">아이와함께</a><ul class="lnb align4"><li><a href="sub_04.html">영유아 추천 (0~3세)</a></li><li><a href="sub_04.html">유아/아동 활동</a></li><li><a href="sub_04.html">교육/체험</a></li><li><a href="sub_04.html">키즈카페</a></li><li><a href="sub_04.html">실내 놀거리</a></li><li><a href="sub_04.html">야외 놀이터</a></li></ul></li><li><a href="board.html">게시판</a><ul class="lnb align5"><li><a href="board.html">후기</a></li><li><a href="board.html">인증샷</a></li><li><a href="board.html">질문하기</a></li><li><a href="board.html">자유게시판</a></li><li><a href="board.html">인기글</a></li><li><a href="board.html">공지사항</a></li></ul></li><li class="ai_recom"><a href="ai.html">ai추천</a><ul class="lnb align6"><li><a href="ai.html">맞춤 추천 받기</a></li><li><a href="ai.html">취향 분석</a></li><li><a href="ai.html">내 취향 저장</a></li><li><a href="ai.html">추천 기록</a></li><li><a href="ai.html">추천 설정</a></li></ul></li></ul></nav>
+    </header>
+<section class="common-search-wrap" aria-label="Pickly 공통 검색">
+        <div class="scontainer">
+            <div class="common-search-card">
+                <div class="common-search-copy">
+                    <span>SMART SEARCH</span>
+                    <h3>오늘 어디로 가볼까요?</h3>
+                    <p>지역, 기분, 활동 유형을 골라 Pickly 추천을 더 빠르게 찾아보세요.</p>
+                </div>
+
+                <form class="common-search-form" action="search.html" method="get">
+                    <label class="common-keyword-box">
+                        <span class="material-symbols-outlined">search</span>
+                        <input type="search" name="q" placeholder="장소명, 지역, 키워드를 입력하세요">
+                    </label>
+                    <button type="submit" class="common-search-submit">검색</button>
+                    <button type="button" class="common-filter-toggle" aria-expanded="false">
+                        <span class="material-symbols-outlined">tune</span>맞춤 필터
+                    </button>
+                </form>
+
+                <div class="common-filter-panel">
+                    <div class="common-filter-grid">
+                        <div class="common-filter-item">
+                            <span class="filter-label">지역</span>
+                            <div class="common-custom-select" data-name="region" data-value="">
+                                <button type="button" class="common-select-trigger" aria-expanded="false"><span>전체 지역</span></button>
+                                <ul class="common-select-menu">
+                                    <li><button type="button" class="common-select-option is-selected" data-value=""><span class="material-symbols-outlined">check</span><em>전체 지역</em></button></li><li><button type="button" class="common-select-option" data-value="서울"><span class="material-symbols-outlined">check</span><em>서울</em></button></li><li><button type="button" class="common-select-option" data-value="경기"><span class="material-symbols-outlined">check</span><em>경기</em></button></li><li><button type="button" class="common-select-option" data-value="인천"><span class="material-symbols-outlined">check</span><em>인천</em></button></li><li><button type="button" class="common-select-option" data-value="부산"><span class="material-symbols-outlined">check</span><em>부산</em></button></li><li><button type="button" class="common-select-option" data-value="대구"><span class="material-symbols-outlined">check</span><em>대구</em></button></li><li><button type="button" class="common-select-option" data-value="광주"><span class="material-symbols-outlined">check</span><em>광주</em></button></li><li><button type="button" class="common-select-option" data-value="대전"><span class="material-symbols-outlined">check</span><em>대전</em></button></li><li><button type="button" class="common-select-option" data-value="울산"><span class="material-symbols-outlined">check</span><em>울산</em></button></li><li><button type="button" class="common-select-option" data-value="세종"><span class="material-symbols-outlined">check</span><em>세종</em></button></li><li><button type="button" class="common-select-option" data-value="강원"><span class="material-symbols-outlined">check</span><em>강원</em></button></li><li><button type="button" class="common-select-option" data-value="충북"><span class="material-symbols-outlined">check</span><em>충북</em></button></li><li><button type="button" class="common-select-option" data-value="충남"><span class="material-symbols-outlined">check</span><em>충남</em></button></li><li><button type="button" class="common-select-option" data-value="전북"><span class="material-symbols-outlined">check</span><em>전북</em></button></li><li><button type="button" class="common-select-option" data-value="전남"><span class="material-symbols-outlined">check</span><em>전남</em></button></li><li><button type="button" class="common-select-option" data-value="경북"><span class="material-symbols-outlined">check</span><em>경북</em></button></li><li><button type="button" class="common-select-option" data-value="경남"><span class="material-symbols-outlined">check</span><em>경남</em></button></li><li><button type="button" class="common-select-option" data-value="제주"><span class="material-symbols-outlined">check</span><em>제주</em></button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="common-filter-item">
+                            <span class="filter-label">기분</span>
+                            <div class="common-custom-select" data-name="mood" data-value="">
+                                <button type="button" class="common-select-trigger" aria-expanded="false"><span>오늘 기분 선택</span></button>
+                                <ul class="common-select-menu">
+                                    <li><button type="button" class="common-select-option is-selected" data-value=""><span class="material-symbols-outlined">check</span><em>오늘 기분 선택</em></button></li><li><button type="button" class="common-select-option" data-value="힐링재충전"><span class="material-symbols-outlined">check</span><em>힐링재충전</em></button></li><li><button type="button" class="common-select-option" data-value="인스타감성"><span class="material-symbols-outlined">check</span><em>인스타감성</em></button></li><li><button type="button" class="common-select-option" data-value="설레는"><span class="material-symbols-outlined">check</span><em>설레는</em></button></li><li><button type="button" class="common-select-option" data-value="혼자만의시간"><span class="material-symbols-outlined">check</span><em>혼자만의시간</em></button></li><li><button type="button" class="common-select-option" data-value="소확행"><span class="material-symbols-outlined">check</span><em>소확행</em></button></li><li><button type="button" class="common-select-option" data-value="에너지업"><span class="material-symbols-outlined">check</span><em>에너지업</em></button></li><li><button type="button" class="common-select-option" data-value="차분한"><span class="material-symbols-outlined">check</span><em>차분한</em></button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="common-filter-item">
+                            <span class="filter-label">활동 유형</span>
+                            <div class="common-custom-select" data-name="type" data-value="">
+                                <button type="button" class="common-select-trigger" aria-expanded="false"><span>활동 유형 선택</span></button>
+                                <ul class="common-select-menu">
+                                    <li><button type="button" class="common-select-option is-selected" data-value=""><span class="material-symbols-outlined">check</span><em>활동 유형 선택</em></button></li><li><button type="button" class="common-select-option" data-value="카페"><span class="material-symbols-outlined">check</span><em>카페</em></button></li><li><button type="button" class="common-select-option" data-value="맛집"><span class="material-symbols-outlined">check</span><em>맛집</em></button></li><li><button type="button" class="common-select-option" data-value="문화전시"><span class="material-symbols-outlined">check</span><em>문화 / 전시</em></button></li><li><button type="button" class="common-select-option" data-value="야외산책"><span class="material-symbols-outlined">check</span><em>야외 / 산책</em></button></li><li><button type="button" class="common-select-option" data-value="체험공방"><span class="material-symbols-outlined">check</span><em>체험 / 공방</em></button></li><li><button type="button" class="common-select-option" data-value="실내활동"><span class="material-symbols-outlined">check</span><em>실내활동</em></button></li><li><button type="button" class="common-select-option" data-value="쇼핑"><span class="material-symbols-outlined">check</span><em>쇼핑</em></button></li><li><button type="button" class="common-select-option" data-value="키즈"><span class="material-symbols-outlined">check</span><em>키즈</em></button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="common-filter-item">
+                            <span class="filter-label">시간대</span>
+                            <div class="common-custom-select" data-name="time" data-value="">
+                                <button type="button" class="common-select-trigger" aria-expanded="false"><span>시간대 선택</span></button>
+                                <ul class="common-select-menu">
+                                    <li><button type="button" class="common-select-option is-selected" data-value=""><span class="material-symbols-outlined">check</span><em>시간대 선택</em></button></li><li><button type="button" class="common-select-option" data-value="낮"><span class="material-symbols-outlined">check</span><em>낮</em></button></li><li><button type="button" class="common-select-option" data-value="저녁"><span class="material-symbols-outlined">check</span><em>저녁</em></button></li><li><button type="button" class="common-select-option" data-value="야간"><span class="material-symbols-outlined">check</span><em>야간</em></button></li><li><button type="button" class="common-select-option" data-value="주중"><span class="material-symbols-outlined">check</span><em>주중</em></button></li><li><button type="button" class="common-select-option" data-value="주말"><span class="material-symbols-outlined">check</span><em>주말</em></button></li><li><button type="button" class="common-select-option" data-value="짧은외출"><span class="material-symbols-outlined">check</span><em>짧은 외출</em></button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="common-chip-row" data-chip-group="keyword">
+                        <button type="button" data-value="분위기 좋은 곳">#분위기 좋은 곳</button>
+                        <button type="button" data-value="사진 스팟">#사진 스팟</button>
+                        <button type="button" data-value="가볍게 즐기기">#가볍게 즐기기</button>
+                        <button type="button" data-value="실내 놀거리">#실내 놀거리</button>
+                        <button type="button" data-value="맛집 데이트">#맛집 데이트</button>
+                    </div>
+
+                    <div class="common-filter-bottom">
+                        <p><span class="material-symbols-outlined">auto_awesome</span>선택한 조건은 검색 결과 페이지로 연결돼요.</p>
+                        <button type="button" class="common-filter-apply">조건 적용하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<section class="sub-page-intro">
+        <div class="scontainer">
+            <div class="intro-copy">
+                <h3><img src="images/sub_tit_icon.png" alt="">가족나들이</h3>
+                <p>아이부터 어른까지 함께 즐기는 주말 추천</p>
+            </div>
+            <ul class="bs_list"><li class="on"><a href="sub_03.html?tag=%EC%A3%BC%EB%A7%90%20%EB%82%98%EB%93%A4%EC%9D%B4">#주말 나들이</a></li><li><a href="sub_03.html?tag=%EA%B0%80%EC%A1%B1%20%EC%99%B8%EC%8B%9D">#가족 외식</a></li><li><a href="sub_03.html?tag=%EC%B2%B4%ED%97%98%20%ED%99%9C%EB%8F%99">#체험 활동</a></li><li><a href="sub_03.html?tag=%EA%B7%BC%EA%B5%90%20%ED%9E%90%EB%A7%81">#근교 힐링</a></li></ul>
+        </div>
+    </section>
+    <section class="bemyself_box sub-list-page">
+        <div class="scontainer">
+            <div class="rec_list"><ul><li>
+                    <a href="place_detail.html?title=%EC%84%9C%EC%9A%B8%EC%88%B2%20%ED%94%BC%ED%81%AC%EB%8B%89">
+                        <div class="sub-card-media sheet-family"><img src="images/sub_category_sheet.png" alt=""></div>
+                        <div class="list_box">
+                            <div class="list_txt">
+                                <h5>서울숲 피크닉<span>넓은 잔디와 산책길이 있는 도심 속 가족 쉼터</span></h5>
+                                <p class="star">★ 4.7</p>
+                            </div>
+                            <p><span><img src="images/icon_location.png" alt="">서울 성동구 뚝섬로</span> <strong><img src="images/icon_time.png" alt="">상시 개방</strong></p>
+                        </div>
+                    </a>
+                </li><li>
+                    <a href="place_detail.html?title=%EA%B5%AD%EB%A6%BD%EA%B3%BC%EC%B2%9C%EA%B3%BC%ED%95%99%EA%B4%80">
+                        <div class="sub-card-media sheet-family"><img src="images/sub_category_sheet.png" alt=""></div>
+                        <div class="list_box">
+                            <div class="list_txt">
+                                <h5>국립과천과학관<span>아이와 함께 과학을 쉽고 재미있게 만나는 공간</span></h5>
+                                <p class="star">★ 4.6</p>
+                            </div>
+                            <p><span><img src="images/icon_location.png" alt="">경기 과천시 상하벌로</span> <strong><img src="images/icon_time.png" alt="">09:30 ~ 17:30</strong></p>
+                        </div>
+                    </a>
+                </li><li>
+                    <a href="place_detail.html?title=%ED%95%98%EB%82%A8%20%EC%8A%A4%ED%83%80%ED%95%84%EB%93%9C">
+                        <div class="sub-card-media sheet-family"><img src="images/sub_category_sheet.png" alt=""></div>
+                        <div class="list_box">
+                            <div class="list_txt">
+                                <h5>하남 스타필드<span>쇼핑, 식사, 휴식을 한 번에 해결하는 복합몰</span></h5>
+                                <p class="star">★ 4.4</p>
+                            </div>
+                            <p><span><img src="images/icon_location.png" alt="">경기 하남시 미사대로</span> <strong><img src="images/icon_time.png" alt="">10:00 ~ 22:00</strong></p>
+                        </div>
+                    </a>
+                </li><li>
+                    <a href="place_detail.html?title=%EB%82%A8%EC%96%91%EC%A3%BC%20%EB%AC%BC%EC%9D%98%EC%A0%95%EC%9B%90">
+                        <div class="sub-card-media sheet-family"><img src="images/sub_category_sheet.png" alt=""></div>
+                        <div class="list_box">
+                            <div class="list_txt">
+                                <h5>남양주 물의정원<span>자연 풍경을 따라 걷기 좋은 근교 산책 코스</span></h5>
+                                <p class="star">★ 4.5</p>
+                            </div>
+                            <p><span><img src="images/icon_location.png" alt="">경기 남양주시 조안면</span> <strong><img src="images/icon_time.png" alt="">상시 개방</strong></p>
+                        </div>
+                    </a>
+                </li><li>
+                    <a href="place_detail.html?title=%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%8C%80%EA%B3%B5%EC%9B%90">
+                        <div class="sub-card-media sheet-family"><img src="images/sub_category_sheet.png" alt=""></div>
+                        <div class="list_box">
+                            <div class="list_txt">
+                                <h5>어린이대공원<span>동물, 놀이, 산책을 함께 즐기는 클래식 명소</span></h5>
+                                <p class="star">★ 4.5</p>
+                            </div>
+                            <p><span><img src="images/icon_location.png" alt="">서울 광진구 능동로</span> <strong><img src="images/icon_time.png" alt="">05:00 ~ 22:00</strong></p>
+                        </div>
+                    </a>
+                </li><li>
+                    <a href="place_detail.html?title=%ED%8C%8C%EC%A3%BC%20%ED%97%A4%EC%9D%B4%EB%A6%AC%EB%A7%88%EC%9D%84">
+                        <div class="sub-card-media sheet-family"><img src="images/sub_category_sheet.png" alt=""></div>
+                        <div class="list_box">
+                            <div class="list_txt">
+                                <h5>파주 헤이리마을<span>전시와 카페, 책방이 모인 문화 나들이</span></h5>
+                                <p class="star">★ 4.4</p>
+                            </div>
+                            <p><span><img src="images/icon_location.png" alt="">경기 파주시 탄현면</span> <strong><img src="images/icon_time.png" alt="">10:00 ~ 19:00</strong></p>
+                        </div>
+                    </a>
+                </li></ul></div>
+        </div>
+    </section>
+    <footer>
+        <div class="foot">
+            <img src="images/foot_logo.png" alt="">
+            <div class="foot_tit">Pickly 더 나은 하루를 위한 추천 서비스</div>
+            <div class="foot_add">
+                <p><strong>이메일</strong> contact@pickly.com</p>
+                <p><span>운영시간 </span> 평일 09:00 - 18:00</p>
+            </div>
+            <ul class="foot_service">
+                <li><a href="terms.html">이용약관</a></li>
+                <li><a href="privacy.html">개인정보처리방침</a></li>
+                <li><a href="support.html">고객센터</a></li>
+                <li><a href="partner.html">제휴 문의 서비스</a></li>
+                <li><a href="guide.html">이용 가이드</a></li>
+            </ul>
+            <div class="foot_copyright">© 2026 Pickly. Designed by KimHyeok.</div>
+        </div>
+    </footer>
+<script>
+(function(){
+  const wraps = document.querySelectorAll('.common-search-wrap');
+  wraps.forEach(function(wrap){
+    const form = wrap.querySelector('.common-search-form');
+    const toggle = wrap.querySelector('.common-filter-toggle');
+    const panel = wrap.querySelector('.common-filter-panel');
+    const apply = wrap.querySelector('.common-filter-apply');
+    const keywordInput = wrap.querySelector('input[name="q"]');
+    const chipButtons = wrap.querySelectorAll('.common-chip-row button');
+    const customSelects = wrap.querySelectorAll('.common-custom-select');
+
+    if(toggle && panel){
+      toggle.addEventListener('click', function(){
+        const isOpen = wrap.classList.toggle('is-filter-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if(!isOpen){
+          customSelects.forEach(function(select){
+            select.classList.remove('is-open');
+            const trigger = select.querySelector('.common-select-trigger');
+            if(trigger) trigger.setAttribute('aria-expanded','false');
+          });
+        }
+      });
+    }
+
+    customSelects.forEach(function(select){
+      const trigger = select.querySelector('.common-select-trigger');
+      const triggerText = trigger ? trigger.querySelector('span') : null;
+      const options = select.querySelectorAll('.common-select-option');
+
+      if(trigger){
+        trigger.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          customSelects.forEach(function(other){
+            if(other !== select){
+              other.classList.remove('is-open');
+              const otherTrigger = other.querySelector('.common-select-trigger');
+              if(otherTrigger) otherTrigger.setAttribute('aria-expanded','false');
+            }
+          });
+          const isOpen = select.classList.toggle('is-open');
+          trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+      }
+
+      options.forEach(function(option){
+        option.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          options.forEach(function(other){ other.classList.remove('is-selected'); });
+          option.classList.add('is-selected');
+          select.dataset.value = option.dataset.value || '';
+          if(triggerText){
+            const label = option.querySelector('em');
+            triggerText.textContent = label ? label.textContent : option.textContent.trim();
+          }
+          select.classList.remove('is-open');
+          if(trigger) trigger.setAttribute('aria-expanded','false');
+        });
+      });
+    });
+
+    chipButtons.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        chipButtons.forEach(function(other){ if(other !== btn) other.classList.remove('active'); });
+        btn.classList.toggle('active');
+        if(btn.classList.contains('active') && keywordInput && !keywordInput.value.trim()){
+          keywordInput.value = btn.dataset.value;
+        }
+      });
+    });
+
+    function goSearch(){
+      const params = new URLSearchParams();
+      const q = keywordInput ? keywordInput.value.trim() : '';
+      if(q) params.set('q', q);
+      customSelects.forEach(function(select){
+        const value = select.dataset.value || '';
+        const name = select.dataset.name;
+        if(name && value) params.set(name, value);
+      });
+      const activeChip = wrap.querySelector('.common-chip-row button.active');
+      if(activeChip) params.set('tag', activeChip.dataset.value);
+      const url = 'search.html' + (params.toString() ? '?' + params.toString() : '');
+      window.location.href = url;
+    }
+
+    if(form){
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        goSearch();
+      });
+    }
+    if(apply){
+      apply.addEventListener('click', goSearch);
+    }
+
+    document.addEventListener('click', function(e){
+      if(!wrap.contains(e.target)){
+        customSelects.forEach(function(select){
+          select.classList.remove('is-open');
+          const trigger = select.querySelector('.common-select-trigger');
+          if(trigger) trigger.setAttribute('aria-expanded','false');
+        });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

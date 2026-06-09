@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickly - 게시판</title>
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/sub.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+</head>
+<body>
+    <header class="container">
+        <div class="topset">
+            <div class="Fav_box"><a href="favorites.html"><img src="images/icon_fav.png" alt="즐겨찾기">Favorites</a></div>
+            <div class="login_box">
+                <div class="login">
+                    <a href="login.html"><img src="images/icon_login.png" alt="로그인">LOGIN</a>
+                    <a href="join.html" class="log_line"><img src="images/icon_join.png" alt="회원가입">JOIN</a>
+                    <a href="sitemap.html"><img src="images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
+                </div>
+                <div class="logout">
+                    <a href="login.html"><img src="images/icon_login.png" alt="로그아웃">LOGOUT</a>
+                    <a href="join.html" class="log_line"><img src="images/icon_join.png" alt="회원가입">JOIN</a>
+                    <a href="sitemap.html"><img src="images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
+                </div>
+            </div>
+        </div>
+        <h1><a href="index.html"><img src="images/logo.png" alt="픽클리"></a></h1>
+        <nav class="gnb"><ul><li><a href="sub_01.html">혼자하기</a><ul class="lnb"><li><a href="sub_01.html">요즘 핫한</a></li><li><a href="sub_01.html">근처에서 찾기</a></li><li><a href="sub_01.html">가볍게 즐기기</a></li><li><a href="sub_01.html">취미/힐링</a></li><li><a href="sub_01.html">혼밥 맛집</a></li><li><a href="sub_01.html">집에서 즐기기</a></li></ul></li><li><a href="sub_02.html">데이트코스</a><ul class="lnb align2"><li><a href="sub_02.html">분위기 좋은 곳</a></li><li><a href="sub_02.html">이색 데이트</a></li><li><a href="sub_02.html">맛집 데이트</a></li><li><a href="sub_02.html">사진 스팟</a></li><li><a href="sub_02.html">산책/야외 데이트</a></li><li><a href="sub_02.html">실내 데이트</a></li></ul></li><li><a href="sub_03.html">가족나들이</a><ul class="lnb align3"><li><a href="sub_03.html">야외 나들이</a></li><li><a href="sub_03.html">체험/놀이시설</a></li><li><a href="sub_03.html">가족 외식 추천</a></li><li><a href="sub_03.html">쇼핑/복합몰</a></li><li><a href="sub_03.html">근교 나들이</a></li><li><a href="sub_03.html">전시/공연</a></li></ul></li><li><a href="sub_04.html">아이와함께</a><ul class="lnb align4"><li><a href="sub_04.html">영유아 추천 (0~3세)</a></li><li><a href="sub_04.html">유아/아동 활동</a></li><li><a href="sub_04.html">교육/체험</a></li><li><a href="sub_04.html">키즈카페</a></li><li><a href="sub_04.html">실내 놀거리</a></li><li><a href="sub_04.html">야외 놀이터</a></li></ul></li><li><a href="board.html" class="is-active">게시판</a><ul class="lnb align5"><li><a href="board.html">후기</a></li><li><a href="board.html">인증샷</a></li><li><a href="board.html">질문하기</a></li><li><a href="board.html">자유게시판</a></li><li><a href="board.html">인기글</a></li><li><a href="board.html">공지사항</a></li></ul></li><li class="ai_recom"><a href="ai.html">ai추천</a><ul class="lnb align6"><li><a href="ai.html">맞춤 추천 받기</a></li><li><a href="ai.html">취향 분석</a></li><li><a href="ai.html">내 취향 저장</a></li><li><a href="ai.html">추천 기록</a></li><li><a href="ai.html">추천 설정</a></li></ul></li></ul></nav>
+    </header>
+    <section class="board-top-fullwidth">
+        <div class="scontainer">
+            <div class="board-modern-hero">
+                <div class="board-hero-copy">
+                    <span>COMMUNITY</span>
+                    <h3>오늘의 발견을<br>같이 나눠요</h3>
+                    <p>후기, 인증샷, 질문, 공지까지 Pickly 이용자들의 생생한 이야기를 한눈에 확인할 수 있어요.</p>
+                    <div class="board-hero-actions">
+                        <a href="board_write.html">글쓰기</a>
+                        <a href="board.html?type=popular">인기글 보기</a>
+                    </div>
+                </div>
+                <div class="board-hero-panel">
+                    <div class="board-stat-card main">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                        <strong>이번 주 인기 키워드</strong>
+                        <p>#성수카페 #비오는날데이트 #혼자산책</p>
+                    </div>
+                    <div class="board-stat-wrap">
+                        <div class="board-stat-card"><strong>128</strong><span>새 후기</span></div>
+                        <div class="board-stat-card"><strong>43</strong><span>질문 답변</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="board-modern-page">
+        <div class="scontainer">
+<div class="board-toolbar">
+                <ul class="board-modern-tabs">
+                    <li class="on"><a href="board.html">전체</a></li>
+                    <li><a href="board.html?type=review">후기</a></li>
+                    <li><a href="board.html?type=photo">인증샷</a></li>
+                    <li><a href="board.html?type=qna">질문</a></li>
+                    <li><a href="board.html?type=notice">공지</a></li>
+                </ul>
+                <form class="board-search" action="search.html" method="get">
+                    <input type="search" name="q" placeholder="게시글 검색">
+                    <button type="submit"><span class="material-symbols-outlined">search</span></button>
+                </form>
+            </div>
+
+            <div class="board-layout">
+                <main class="board-main-list">
+                    <div class="board-section-head">
+                        <div>
+                            <span>PINNED</span>
+                            <h4>놓치면 아쉬운 소식</h4>
+                        </div>
+                        <a href="board.html?type=notice">공지 더보기</a>
+                    </div>
+
+                    <div class="notice-card-grid">
+                        <a href="post_detail.html?title=Pickly%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EC%9D%B4%EC%9A%A9%20%EC%95%88%EB%82%B4" class="notice-card">
+                            <em>공지</em>
+                            <strong>Pickly 서비스 이용 안내</strong>
+                            <p>맞춤 추천, 즐겨찾기, 후기 작성 방법을 간단하게 정리했어요.</p>
+                            <span>2026.06.09</span>
+                        </a>
+                        <a href="post_detail.html?title=%EC%97%AC%EB%A6%84%20%EC%B6%94%EC%B2%9C%20%ED%83%9C%EA%B7%B8%20%EC%9D%B4%EB%B2%A4%ED%8A%B8" class="notice-card event">
+                            <em>이벤트</em>
+                            <strong>여름 추천 태그 이벤트</strong>
+                            <p>내가 발견한 여름 코스를 태그와 함께 공유해보세요.</p>
+                            <span>2026.06.03</span>
+                        </a>
+                    </div>
+
+                    <div class="board-section-head list-head">
+                        <div>
+                            <span>RECENT POSTS</span>
+                            <h4>최근 게시글</h4>
+                        </div>
+                        <p>총 156개의 글</p>
+                    </div>
+
+                    <ul class="modern-board-list">
+                        <li>
+                            <a href="post_detail.html?title=%ED%98%BC%EC%9E%90%20%EC%82%B0%EC%B1%85%20%EC%BD%94%EC%8A%A4%20%EB%8B%A4%EB%85%80%EC%99%94%EC%96%B4%EC%9A%94">
+                                <em class="tag review">후기</em>
+                                <div>
+                                    <strong>혼자 산책 코스 다녀왔어요</strong>
+                                    <p>선유도 공원에서 천천히 걷고 왔는데 생각보다 조용해서 좋았어요.</p>
+                                    <span>혜옥 · 2026.05.28 · 조회 482</span>
+                                </div>
+                                <b>12</b>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="post_detail.html?title=%EB%B9%84%20%EC%98%A4%EB%8A%94%20%EB%82%A0%20%EB%8D%B0%EC%9D%B4%ED%8A%B8%20%EC%9E%A5%EC%86%8C%20%EC%B6%94%EC%B2%9C%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94">
+                                <em class="tag qna">질문</em>
+                                <div>
+                                    <strong>비 오는 날 데이트 장소 추천해주세요</strong>
+                                    <p>야외 말고 실내에서 분위기 좋은 곳이면 더 좋을 것 같아요.</p>
+                                    <span>moodpick · 2026.05.22 · 조회 351</span>
+                                </div>
+                                <b>8</b>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="post_detail.html?title=%EC%84%9C%EC%9A%B8%EC%88%B2%20%ED%94%BC%ED%81%AC%EB%8B%89%20%EC%82%AC%EC%A7%84%20%EA%B3%B5%EC%9C%A0">
+                                <em class="tag photo">인증샷</em>
+                                <div>
+                                    <strong>서울숲 피크닉 사진 공유</strong>
+                                    <p>날씨가 좋아서 피크닉 매트만 깔아도 완성되는 하루였어요.</p>
+                                    <span>picnicday · 2026.05.17 · 조회 620</span>
+                                </div>
+                                <b>24</b>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="post_detail.html?title=%EC%9A%94%EC%A6%98%20%EB%A7%88%EC%9D%8C%EC%97%90%20%EB%93%A0%20%EC%B9%B4%ED%8E%98%20%EC%9D%B4%EC%95%BC%EA%B8%B0">
+                                <em class="tag free">자유</em>
+                                <div>
+                                    <strong>요즘 마음에 든 카페 이야기</strong>
+                                    <p>혼자 노트북 하기 좋은 곳 발견해서 다음에도 가보려고요.</p>
+                                    <span>coffeezip · 2026.05.10 · 조회 219</span>
+                                </div>
+                                <b>5</b>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="board-pagination">
+                        <a href="#" class="on">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#"><span class="material-symbols-outlined">chevron_right</span></a>
+                    </div>
+                </main>
+
+                <aside class="board-side">
+                    <div class="side-write-card">
+                        <span class="material-symbols-outlined">edit_square</span>
+                        <strong>나만의 코스가 있나요?</strong>
+                        <p>직접 다녀온 장소와 꿀팁을 Pickly에 남겨보세요.</p>
+                        <a href="board_write.html">글쓰기</a>
+                    </div>
+                    <div class="side-ranking-card">
+                        <h4>인기 게시글</h4>
+                        <ol>
+                            <li><a href="post_detail.html">성수 데이트 코스 진짜 좋았어요</a></li>
+                            <li><a href="post_detail.html">아이랑 가기 좋은 실내 장소</a></li>
+                            <li><a href="post_detail.html">혼자 책 읽기 좋은 북카페</a></li>
+                            <li><a href="post_detail.html">비 오는 날 전시 추천</a></li>
+                        </ol>
+                    </div>
+                    <div class="side-tag-card">
+                        <h4>추천 태그</h4>
+                        <div>
+                            <a href="search.html?tag=혼자산책">#혼자산책</a>
+                            <a href="search.html?tag=데이트코스">#데이트코스</a>
+                            <a href="search.html?tag=아이와함께">#아이와함께</a>
+                            <a href="search.html?tag=비오는날">#비오는날</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+<footer>
+        <div class="foot">
+            <img src="images/foot_logo.png" alt="">
+            <div class="foot_tit">Pickly 더 나은 하루를 위한 추천 서비스</div>
+            <div class="foot_add">
+                <p><strong>이메일</strong> contact@pickly.com</p>
+                <p><span>운영시간 </span> 평일 09:00 - 18:00</p>
+            </div>
+            <ul class="foot_service">
+                <li><a href="terms.html">이용약관</a></li>
+                <li><a href="privacy.html">개인정보처리방침</a></li>
+                <li><a href="support.html">고객센터</a></li>
+                <li><a href="partner.html">제휴 문의 서비스</a></li>
+                <li><a href="guide.html">이용 가이드</a></li>
+            </ul>
+            <div class="foot_copyright">© 2026 Pickly. Designed by KimHyeok.</div>
+        </div>
+    </footer>
+</body>
+</html>

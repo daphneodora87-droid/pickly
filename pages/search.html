@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickly - 검색 결과</title>
+    <link rel="stylesheet" href="../assets/css/font.css">
+    <link rel="stylesheet" href="../assets/css/sub.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <style>
+      .search-bar-wrap{max-width:720px; margin:0 auto 44px; text-align:center;}
+      .search-form-top{display:flex; align-items:center; background:#fff; border:1.5px solid #e7e3fb;
+        border-radius:50px; padding:7px 7px 7px 26px; box-shadow:0 14px 40px rgba(123,92,255,0.10); transition:.25s ease;}
+      .search-form-top:focus-within{border-color:#7B5CFF; box-shadow:0 18px 48px rgba(123,92,255,0.20);}
+      .search-form-top .s-icon{font-size:26px; color:#7B5CFF; margin-right:12px;}
+      .search-form-top input{flex:1; border:none; outline:none; background:transparent; font-family:inherit;
+        font-size:18px; color:#222; padding:15px 0;}
+      .search-form-top input::placeholder{color:#b6b4c6;}
+      .search-form-top .search-go{display:inline-flex; align-items:center; gap:6px; height:52px; padding:0 30px;
+        border:none; border-radius:50px; color:#fff; font-size:17px; font-weight:700; cursor:pointer;
+        font-family:inherit; background:linear-gradient(90deg,#7B5CFF,#2ED1C2); transition:.2s ease; white-space:nowrap;}
+      .search-form-top .search-go .material-symbols-outlined{font-size:20px;}
+      .search-form-top .search-go:hover{filter:brightness(1.06); transform:translateY(-1px); box-shadow:0 10px 24px rgba(46,209,194,0.30);}
+      .search-keyword-line{margin-top:24px; font-size:18px; color:#888; display:inline-flex; align-items:baseline; gap:8px;}
+      .search-keyword-line strong{font-size:24px; color:#7B5CFF; font-weight:800;}
+      .search-keyword-line #resultMeta{font-size:18px; color:#888;}
+      .search-noresult{text-align:center; color:#9a9aa6; font-size:18px; padding:70px 0;}
+      .board-tabs a{cursor:pointer;}
+
+      /* 검색 결과 카드 - 메인(오늘의 추천 LIST)과 동일 스타일 */
+      #resultList{display:grid; grid-template-columns:repeat(3,1fr); gap:50px 30px; list-style:none; padding:0; margin-top:34px;}
+      @media (max-width:1024px){ #resultList{grid-template-columns:repeat(2,1fr);} }
+      @media (max-width:640px){ #resultList{grid-template-columns:1fr;} }
+      #resultList li{position:relative; overflow:hidden;}
+      #resultList li a{display:block;}
+      #resultList .list_img{position:relative; height:220px; border-radius:18px; overflow:hidden;
+        display:flex; align-items:center; justify-content:center; transition:transform .5s ease-in-out;}
+      #resultList li:hover .list_img{transform:scale(1.05);}
+      #resultList .list_img::after{content:""; position:absolute; right:-30px; bottom:-40px; width:150px; height:150px;
+        border-radius:50%; background:rgba(255,255,255,0.16);}
+      #resultList .list_img .rcard-pin{font-size:54px; color:rgba(255,255,255,0.9); position:relative; z-index:1;}
+      #resultList .list_img.has-photo{background:#eef0f7;}
+      #resultList .list_img img{width:100%; height:100%; object-fit:cover; display:block;}
+      #resultList .cat-solo{background:linear-gradient(135deg,#6EE7E0,#5B9DFF);}
+      #resultList .cat-date{background:linear-gradient(135deg,#B79CFF,#FF9DC7);}
+      #resultList .cat-family{background:linear-gradient(135deg,#FFC979,#7BE0A3);}
+      #resultList .list_box{padding:24px 6px 0;}
+      #resultList .list_txt{display:flex; justify-content:space-between; align-items:flex-start;}
+      #resultList .list_txt h5{font-size:22px; font-weight:500; line-height:1.3;}
+      #resultList .list_txt h5 span{display:block; font-size:15px; color:#888; font-weight:400; margin-top:8px;}
+      #resultList .list_txt .star{flex-shrink:0; background:#2ED1C2; color:#fff; padding:0 16px; border-radius:20px;
+        display:flex; align-items:center; height:35px; font-size:14px; font-weight:500; margin-left:12px;}
+      #resultList .list_box > p{margin-top:16px;}
+      #resultList .list_box > p span{font-size:14px; color:#666; border-right:1px solid #ccc; padding-right:15px;}
+      #resultList .list_box > p span img{margin-right:5px; vertical-align:middle;}
+      #resultList .list_box > p strong{font-size:14px; color:#666; font-weight:400; margin-left:15px;}
+      #resultList .list_box > p strong img{margin-right:5px; vertical-align:middle;}
+    </style>
+</head>
+<body>
+    <header class="container">
+        <div class="topset">
+            <div class="Fav_box"><a href="favorites.html"><img src="../assets/images/icon_fav.png" alt="즐겨찾기">Favorites</a></div>
+            <div class="login_box">
+                <div class="login">
+                    <a href="login.html"><img src="../assets/images/icon_login.png" alt="로그인">LOGIN</a>
+                    <a href="join.html" class="log_line"><img src="../assets/images/icon_join.png" alt="회원가입">JOIN</a>
+                    <a href="sitemap.html"><img src="../assets/images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
+                </div>
+                <div class="logout">
+                    <a href="login.html"><img src="../assets/images/icon_login.png" alt="로그아웃">LOGOUT</a>
+                    <a href="join.html" class="log_line"><img src="../assets/images/icon_join.png" alt="회원가입">JOIN</a>
+                    <a href="sitemap.html"><img src="../assets/images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
+                </div>
+            </div>
+        </div>
+        <h1><a href="../index.html"><img src="../assets/images/logo.png" alt="픽클리"></a></h1>
+        <nav class="gnb"><ul><li><a href="sub_01.html">혼자하기</a><ul class="lnb"><li><a href="sub_01.html">요즘 핫한</a></li><li><a href="sub_01.html">근처에서 찾기</a></li><li><a href="sub_01.html">가볍게 즐기기</a></li><li><a href="sub_01.html">취미/힐링</a></li><li><a href="sub_01.html">혼밥 맛집</a></li><li><a href="sub_01.html">집에서 즐기기</a></li></ul></li><li><a href="sub_02.html">데이트코스</a><ul class="lnb align2"><li><a href="sub_02.html">분위기 좋은 곳</a></li><li><a href="sub_02.html">이색 데이트</a></li><li><a href="sub_02.html">맛집 데이트</a></li><li><a href="sub_02.html">사진 스팟</a></li><li><a href="sub_02.html">산책/야외 데이트</a></li><li><a href="sub_02.html">실내 데이트</a></li></ul></li><li><a href="sub_03.html">가족나들이</a><ul class="lnb align3"><li><a href="sub_03.html">야외 나들이</a></li><li><a href="sub_03.html">체험/놀이시설</a></li><li><a href="sub_03.html">가족 외식 추천</a></li><li><a href="sub_03.html">쇼핑/복합몰</a></li><li><a href="sub_03.html">근교 나들이</a></li><li><a href="sub_03.html">전시/공연</a></li></ul></li><li><a href="sub_04.html">아이와함께</a><ul class="lnb align4"><li><a href="sub_04.html">영유아 추천 (0~3세)</a></li><li><a href="sub_04.html">유아/아동 활동</a></li><li><a href="sub_04.html">교육/체험</a></li><li><a href="sub_04.html">키즈카페</a></li><li><a href="sub_04.html">실내 놀거리</a></li><li><a href="sub_04.html">야외 놀이터</a></li></ul></li><li><a href="board.html">게시판</a><ul class="lnb align5"><li><a href="board.html">후기</a></li><li><a href="board.html">인증샷</a></li><li><a href="board.html">질문하기</a></li><li><a href="board.html">자유게시판</a></li><li><a href="board.html">인기글</a></li><li><a href="board.html">공지사항</a></li></ul></li><li class="ai_recom"><a href="ai.html">ai추천</a><ul class="lnb align6"><li><a href="ai.html">맞춤 추천 받기</a></li><li><a href="ai.html">취향 분석</a></li><li><a href="ai.html">내 취향 저장</a></li><li><a href="ai.html">추천 기록</a></li><li><a href="ai.html">추천 설정</a></li></ul></li></ul></nav>
+    </header>
+    <div class="sub1_top sub-top-util"><div class="txt"><h2>검색 결과<span>태그와 키워드에 맞는 추천을 모아봤어요</span></h2></div></div>
+    <section class="search-page">
+        <div class="scontainer">
+            <div class="search-bar-wrap">
+                <form class="search-form-top" action="search.html" method="get">
+                    <span class="material-symbols-outlined s-icon">search</span>
+                    <input type="search" name="q" id="searchInput" placeholder="장소, 지역, 키워드를 검색하세요">
+                    <button type="submit" class="search-go"><span class="material-symbols-outlined">search</span>검색</button>
+                </form>
+                <p class="search-keyword-line" id="searchKeywordLine" style="display:none;"><strong id="searchKeyword"></strong><span id="resultMeta"></span></p>
+            </div>
+            <div class="board-head"><h3><img src="../assets/images/sub_tit_icon.png" alt="">검색 결과</h3><a href="ai.html">AI추천</a></div>
+            <ul class="board-tabs" id="catTabs">
+                <li class="on"><a href="#" data-cat="all">전체</a></li>
+                <li><a href="#" data-cat="solo">혼자하기</a></li>
+                <li><a href="#" data-cat="date">데이트</a></li>
+                <li><a href="#" data-cat="family">가족</a></li>
+            </ul>
+            <ul id="resultList"></ul>
+            <p id="noResult" class="search-noresult" style="display:none;">검색 결과가 없습니다. 다른 키워드로 검색해 보세요.</p>
+        </div>
+    </section>
+    <footer>
+        <div class="foot">
+            <img src="../assets/images/foot_logo.png" alt="">
+            <div class="foot_tit">Pickly 더 나은 하루를 위한 추천 서비스</div>
+            <div class="foot_add">
+                <p><strong>이메일</strong> contact@pickly.com</p>
+                <p><span>운영시간 </span> 평일 09:00 - 18:00</p>
+            </div>
+            <ul class="foot_service">
+                <li><a href="terms.html">이용약관</a></li>
+                <li><a href="privacy.html">개인정보처리방침</a></li>
+                <li><a href="support.html">고객센터</a></li>
+                <li><a href="partner.html">제휴 문의 서비스</a></li>
+                <li><a href="guide.html">이용 가이드</a></li>
+            </ul>
+            <div class="foot_copyright">© 2026 Pickly. Designed by KimHyeok.</div>
+        </div>
+    </footer>
+    <script src="../assets/js/places.js"></script>
+    <script>
+    (function () {
+      var places = window.PICKLY_PLACES || [];
+      var sheetByCat = { solo:'sheet-ai', date:'sheet-date', family:'sheet-family' };
+      var catLabel   = { solo:'혼자하기', date:'데이트', family:'가족' };
+
+      var params  = new URLSearchParams(location.search);
+      var keyword = (params.get('q') || params.get('tag') || '').trim();
+      var curCat  = 'all';
+
+      var listEl  = document.getElementById('resultList');
+      var noResEl = document.getElementById('noResult');
+      var kwLine  = document.getElementById('searchKeywordLine');
+      var kwEl    = document.getElementById('searchKeyword');
+      var metaEl  = document.getElementById('resultMeta');
+      var input   = document.getElementById('searchInput');
+
+      if (keyword) {
+        input.value = keyword;
+        document.title = 'Pickly - "' + keyword + '" 검색 결과';
+      }
+
+      function esc(s){ return String(s).replace(/[&<>"']/g, function(c){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+      function matches(p, kw){
+        if (!kw) return true;
+        var hay = (p.n+' '+p.region+' '+p.area+' '+p.desc+' '+p.tags.join(' ')+' '+(catLabel[p.cat]||'')).toLowerCase();
+        return hay.indexOf(kw.toLowerCase()) !== -1;
+      }
+
+      function render(){
+        var list = places.filter(function(p){
+          return (curCat === 'all' || p.cat === curCat) && matches(p, keyword);
+        });
+
+        kwLine.style.display = '';
+        kwEl.textContent = keyword ? '"' + keyword + '"' : '전체 여행지';
+        metaEl.textContent = (keyword ? ' 검색 결과' : '') + ' (' + list.length + '곳)';
+
+        if (!list.length){
+          listEl.innerHTML = '';
+          noResEl.style.display = '';
+          return;
+        }
+        noResEl.style.display = 'none';
+        listEl.innerHTML = list.map(function(p){
+          var href = 'place_detail.html?title=' + encodeURIComponent(p.n);
+          return '<li><a href="'+href+'">'
+            + (p.img
+                ? '<div class="list_img has-photo"><img src="'+p.img+'" alt="'+esc(p.n)+'"></div>'
+                : '<div class="list_img cat-'+p.cat+'"><span class="material-symbols-outlined rcard-pin">location_on</span></div>')
+            + '<div class="list_box">'
+            +   '<div class="list_txt"><h5>'+esc(p.n)+'<span>'+esc(p.desc)+'</span></h5><p class="star">★ '+p.rating+'</p></div>'
+            +   '<p><span><img src="../assets/images/icon_location.png" alt="">'+esc(p.region+' '+p.area)+'</span> '
+            +   '<strong><img src="../assets/images/icon_time.png" alt="">'+esc(p.hours)+'</strong></p>'
+            + '</div>'
+            + '</a></li>';
+        }).join('');
+      }
+
+      var tabs = document.getElementById('catTabs');
+      if (tabs){
+        tabs.addEventListener('click', function(e){
+          var a = e.target.closest('a[data-cat]');
+          if (!a) return;
+          e.preventDefault();
+          curCat = a.getAttribute('data-cat');
+          [].forEach.call(tabs.querySelectorAll('li'), function(li){ li.classList.remove('on'); });
+          a.parentElement.classList.add('on');
+          render();
+        });
+      }
+
+      render();
+    })();
+    </script>
+</body>
+</html>

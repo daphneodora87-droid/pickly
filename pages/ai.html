@@ -4,28 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pickly - AI추천</title>
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/sub.css">
+    <link rel="stylesheet" href="../assets/css/font.css">
+    <link rel="stylesheet" href="../assets/css/sub.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <style>
+      /* 콘솔: 처음엔 가로 꽉 차게. 결과 박스는 절대배치라 콘솔 높이에 영향 X */
+      .ai-console{position:relative; display:block !important;}
+      .ai-prompt-panel{width:100%; box-sizing:border-box; min-width:0; transition:width .55s ease, min-height .45s ease;}
+      .ai-console.revealed .ai-prompt-panel{width:54%;}
+      .ai-result-panel{position:absolute; top:0; right:0; width:44%; box-sizing:border-box;
+        opacity:0; transform:translateX(44px); pointer-events:none;
+        transition:opacity .5s ease .05s, transform .5s ease .05s;}
+      .ai-console.revealed .ai-result-panel{opacity:1; transform:none; pointer-events:auto;}
+      .ai-signal-grid button{transition:border-color .18s ease, background .18s ease, color .18s ease;}
+      /* 콘솔 높이 축소 */
+      .ai-prompt-panel{padding:30px;}
+      .ai-prompt-box{padding:18px; margin-bottom:18px;}
+      .ai-prompt-box span{margin-bottom:10px;}
+      .ai-prompt-box textarea{min-height:72px;}
+      .ai-signal-grid{margin-bottom:20px;}
+      @media (max-width:900px){
+        .ai-console.revealed .ai-prompt-panel{width:100%;}
+        .ai-result-panel{position:static; width:100%; margin-top:24px; transform:none;}
+      }
+    </style>
 </head>
 <body>
     <header class="container">
         <div class="topset">
-            <div class="Fav_box"><a href="favorites.html"><img src="images/icon_fav.png" alt="즐겨찾기">Favorites</a></div>
+            <div class="Fav_box"><a href="favorites.html"><img src="../assets/images/icon_fav.png" alt="즐겨찾기">Favorites</a></div>
             <div class="login_box">
                 <div class="login">
-                    <a href="login.html"><img src="images/icon_login.png" alt="로그인">LOGIN</a>
-                    <a href="join.html" class="log_line"><img src="images/icon_join.png" alt="회원가입">JOIN</a>
-                    <a href="sitemap.html"><img src="images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
+                    <a href="login.html"><img src="../assets/images/icon_login.png" alt="로그인">LOGIN</a>
+                    <a href="join.html" class="log_line"><img src="../assets/images/icon_join.png" alt="회원가입">JOIN</a>
+                    <a href="sitemap.html"><img src="../assets/images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
                 </div>
                 <div class="logout">
-                    <a href="login.html"><img src="images/icon_login.png" alt="로그아웃">LOGOUT</a>
-                    <a href="join.html" class="log_line"><img src="images/icon_join.png" alt="회원가입">JOIN</a>
-                    <a href="sitemap.html"><img src="images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
+                    <a href="login.html"><img src="../assets/images/icon_login.png" alt="로그아웃">LOGOUT</a>
+                    <a href="join.html" class="log_line"><img src="../assets/images/icon_join.png" alt="회원가입">JOIN</a>
+                    <a href="sitemap.html"><img src="../assets/images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
                 </div>
             </div>
         </div>
-        <h1><a href="index.html"><img src="images/logo.png" alt="픽클리"></a></h1>
+        <h1><a href="../index.html"><img src="../assets/images/logo.png" alt="픽클리"></a></h1>
         <nav class="gnb"><ul><li><a href="sub_01.html">혼자하기</a><ul class="lnb"><li><a href="sub_01.html">요즘 핫한</a></li><li><a href="sub_01.html">근처에서 찾기</a></li><li><a href="sub_01.html">가볍게 즐기기</a></li><li><a href="sub_01.html">취미/힐링</a></li><li><a href="sub_01.html">혼밥 맛집</a></li><li><a href="sub_01.html">집에서 즐기기</a></li></ul></li><li><a href="sub_02.html">데이트코스</a><ul class="lnb align2"><li><a href="sub_02.html">분위기 좋은 곳</a></li><li><a href="sub_02.html">이색 데이트</a></li><li><a href="sub_02.html">맛집 데이트</a></li><li><a href="sub_02.html">사진 스팟</a></li><li><a href="sub_02.html">산책/야외 데이트</a></li><li><a href="sub_02.html">실내 데이트</a></li></ul></li><li><a href="sub_03.html">가족나들이</a><ul class="lnb align3"><li><a href="sub_03.html">야외 나들이</a></li><li><a href="sub_03.html">체험/놀이시설</a></li><li><a href="sub_03.html">가족 외식 추천</a></li><li><a href="sub_03.html">쇼핑/복합몰</a></li><li><a href="sub_03.html">근교 나들이</a></li><li><a href="sub_03.html">전시/공연</a></li></ul></li><li><a href="sub_04.html">아이와함께</a><ul class="lnb align4"><li><a href="sub_04.html">영유아 추천 (0~3세)</a></li><li><a href="sub_04.html">유아/아동 활동</a></li><li><a href="sub_04.html">교육/체험</a></li><li><a href="sub_04.html">키즈카페</a></li><li><a href="sub_04.html">실내 놀거리</a></li><li><a href="sub_04.html">야외 놀이터</a></li></ul></li><li><a href="board.html">게시판</a><ul class="lnb align5"><li><a href="board.html">후기</a></li><li><a href="board.html">인증샷</a></li><li><a href="board.html">질문하기</a></li><li><a href="board.html">자유게시판</a></li><li><a href="board.html">인기글</a></li><li><a href="board.html">공지사항</a></li></ul></li><li class="ai_recom"><a href="ai.html" class="is-active">ai추천</a><ul class="lnb align6"><li><a href="ai.html">맞춤 추천 받기</a></li><li><a href="ai.html">취향 분석</a></li><li><a href="ai.html">내 취향 저장</a></li><li><a href="ai.html">추천 기록</a></li><li><a href="ai.html">추천 설정</a></li></ul></li></ul></nav>
     </header>
     <div class="ai-hero">
@@ -123,7 +144,7 @@
     </section>
     <footer>
         <div class="foot">
-            <img src="images/foot_logo.png" alt="">
+            <img src="../assets/images/foot_logo.png" alt="">
             <div class="foot_tit">Pickly 더 나은 하루를 위한 추천 서비스</div>
             <div class="foot_add">
                 <p><strong>이메일</strong> contact@pickly.com</p>
@@ -139,5 +160,89 @@
             <div class="foot_copyright">© 2026 Pickly. Designed by KimHyeok.</div>
         </div>
     </footer>
+    <script src="../assets/js/places.js"></script>
+    <script>
+    (function () {
+      var places = window.PICKLY_PLACES || [];
+      var consoleEl = document.querySelector('.ai-console');
+      var chips = [].slice.call(document.querySelectorAll('.ai-signal-grid button'));
+      var genBtn = document.querySelector('.ai-console-actions a');
+      var panel = document.querySelector('.ai-result-panel');
+      if (!consoleEl || !genBtn || !panel) return;
+
+      // 칩 → 필터 매핑
+      var chipMap = {
+        '혼자':  { type:'who', val:'solo' },
+        '데이트':{ type:'who', val:'date' },
+        '가족':  { type:'who', val:'family' },
+        '아이와':{ type:'who', val:'family' },
+        '저녁':  { type:'mood', keys:['야경','노을','일몰','밤바다'] },
+        '실내':  { type:'mood', keys:['실내','박물관','수족관','체험','카페'] },
+        '산책':  { type:'mood', keys:['산책','숲','공원','정원','숲길'] },
+        '사진':  { type:'mood', keys:['사진','감성','벽화','가로수길','노을'] }
+      };
+
+      // 칩 토글
+      chips.forEach(function (b) {
+        b.addEventListener('click', function () { b.classList.toggle('active'); });
+      });
+
+      function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+      function shuffle(a){ for (var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+
+      function whoLabel(set){
+        if (set.indexOf('date') !== -1) return '데이트';
+        if (set.indexOf('family') !== -1) return '가족 나들이';
+        if (set.indexOf('solo') !== -1) return '혼자 즐기는';
+        return '오늘의';
+      }
+
+      function generate(e) {
+        if (e) e.preventDefault();
+        var whoSet = [], moodKeys = [];
+        chips.filter(function (b) { return b.classList.contains('active'); }).forEach(function (b) {
+          var m = chipMap[b.textContent.trim()];
+          if (!m) return;
+          if (m.type === 'who') { if (whoSet.indexOf(m.val) === -1) whoSet.push(m.val); }
+          else moodKeys = moodKeys.concat(m.keys);
+        });
+
+        var pool = places.filter(function (p) { return !whoSet.length || whoSet.indexOf(p.cat) !== -1; });
+        var scored = pool.map(function (p) {
+          var hay = (p.desc + ' ' + p.tags.join(' ')).toLowerCase();
+          var s = 0;
+          moodKeys.forEach(function (k) { if (hay.indexOf(k.toLowerCase()) !== -1) s++; });
+          return { p:p, score:s };
+        });
+        if (moodKeys.length) { var hit = scored.filter(function (x) { return x.score > 0; }); if (hit.length) scored = hit; }
+        shuffle(scored);
+        scored.sort(function (a, b) { return (b.score - a.score) || (b.p.rating - a.p.rating); });
+
+        var top = scored.slice(0, 3).map(function (x) { return x.p; });
+        if (top.length < 3) {
+          var extra = places.slice().sort(function (a, b) { return b.rating - a.rating; });
+          for (var i = 0; i < extra.length && top.length < 3; i++) { if (top.indexOf(extra[i]) === -1) top.push(extra[i]); }
+        }
+        render(top, whoSet, scored.length ? scored[0].score : 0);
+        consoleEl.classList.add('revealed');
+        var promptPanel = consoleEl.querySelector('.ai-prompt-panel');
+        requestAnimationFrame(function () { promptPanel.style.minHeight = panel.offsetHeight + 'px'; });
+      }
+
+      function render(top, whoSet, topScore) {
+        var times = ['15:00', '17:00', '18:30'];
+        var pct = Math.min(98, 84 + topScore * 3 + Math.round(top[0].rating));
+        panel.querySelector('.ai-result-top strong').textContent = pct + '%';
+        panel.querySelector('h3').textContent = whoLabel(whoSet) + ' 추천 코스';
+        panel.querySelector('p').textContent = top[0].n + '에서 시작해 ' + top[1].n + ', ' + top[2].n + '(으)로 이어지는 하루 코스예요.';
+        panel.querySelector('ol').innerHTML = top.map(function (p, i) {
+          return '<li><em>0' + (i + 1) + '</em><span>' + esc(p.n) + '</span><strong>' + times[i] + '</strong></li>';
+        }).join('');
+        panel.querySelector('a').setAttribute('href', 'place_detail.html?title=' + encodeURIComponent(top[0].n));
+      }
+
+      genBtn.addEventListener('click', generate);
+    })();
+    </script>
 </body>
 </html>

@@ -4,28 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pickly - 게시판</title>
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/sub.css">
+    <link rel="stylesheet" href="../assets/css/font.css">
+    <link rel="stylesheet" href="../assets/css/sub.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <style>
+      .board-modern-tabs a{cursor:pointer;}
+      .modern-board-list .tag.notice{background:#efeafc; color:#7B5CFF;}
+      .board-noresult{padding:60px 0; text-align:center; color:#9a9aa6; font-size:16px;}
+      /* 후기·인증샷 썸네일 */
+      .modern-board-list li.has-thumb a{grid-template-columns:90px 1fr 112px 52px;}
+      .modern-board-list .post-thumb{width:112px; height:80px; border-radius:14px; object-fit:cover; background:#eef0f7;}
+      @media (max-width:640px){
+        .modern-board-list li.has-thumb a{grid-template-columns:70px 1fr 52px;}
+        .modern-board-list .post-thumb{display:none;}
+      }
+    </style>
 </head>
 <body>
     <header class="container">
         <div class="topset">
-            <div class="Fav_box"><a href="favorites.html"><img src="images/icon_fav.png" alt="즐겨찾기">Favorites</a></div>
+            <div class="Fav_box"><a href="favorites.html"><img src="../assets/images/icon_fav.png" alt="즐겨찾기">Favorites</a></div>
             <div class="login_box">
                 <div class="login">
-                    <a href="login.html"><img src="images/icon_login.png" alt="로그인">LOGIN</a>
-                    <a href="join.html" class="log_line"><img src="images/icon_join.png" alt="회원가입">JOIN</a>
-                    <a href="sitemap.html"><img src="images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
+                    <a href="login.html"><img src="../assets/images/icon_login.png" alt="로그인">LOGIN</a>
+                    <a href="join.html" class="log_line"><img src="../assets/images/icon_join.png" alt="회원가입">JOIN</a>
+                    <a href="sitemap.html"><img src="../assets/images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
                 </div>
                 <div class="logout">
-                    <a href="login.html"><img src="images/icon_login.png" alt="로그아웃">LOGOUT</a>
-                    <a href="join.html" class="log_line"><img src="images/icon_join.png" alt="회원가입">JOIN</a>
-                    <a href="sitemap.html"><img src="images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
+                    <a href="login.html"><img src="../assets/images/icon_login.png" alt="로그아웃">LOGOUT</a>
+                    <a href="join.html" class="log_line"><img src="../assets/images/icon_join.png" alt="회원가입">JOIN</a>
+                    <a href="sitemap.html"><img src="../assets/images/icon_sitemap.png" alt="사이트맵">SITEMAP</a>
                 </div>
             </div>
         </div>
-        <h1><a href="index.html"><img src="images/logo.png" alt="픽클리"></a></h1>
+        <h1><a href="../index.html"><img src="../assets/images/logo.png" alt="픽클리"></a></h1>
         <nav class="gnb"><ul><li><a href="sub_01.html">혼자하기</a><ul class="lnb"><li><a href="sub_01.html">요즘 핫한</a></li><li><a href="sub_01.html">근처에서 찾기</a></li><li><a href="sub_01.html">가볍게 즐기기</a></li><li><a href="sub_01.html">취미/힐링</a></li><li><a href="sub_01.html">혼밥 맛집</a></li><li><a href="sub_01.html">집에서 즐기기</a></li></ul></li><li><a href="sub_02.html">데이트코스</a><ul class="lnb align2"><li><a href="sub_02.html">분위기 좋은 곳</a></li><li><a href="sub_02.html">이색 데이트</a></li><li><a href="sub_02.html">맛집 데이트</a></li><li><a href="sub_02.html">사진 스팟</a></li><li><a href="sub_02.html">산책/야외 데이트</a></li><li><a href="sub_02.html">실내 데이트</a></li></ul></li><li><a href="sub_03.html">가족나들이</a><ul class="lnb align3"><li><a href="sub_03.html">야외 나들이</a></li><li><a href="sub_03.html">체험/놀이시설</a></li><li><a href="sub_03.html">가족 외식 추천</a></li><li><a href="sub_03.html">쇼핑/복합몰</a></li><li><a href="sub_03.html">근교 나들이</a></li><li><a href="sub_03.html">전시/공연</a></li></ul></li><li><a href="sub_04.html">아이와함께</a><ul class="lnb align4"><li><a href="sub_04.html">영유아 추천 (0~3세)</a></li><li><a href="sub_04.html">유아/아동 활동</a></li><li><a href="sub_04.html">교육/체험</a></li><li><a href="sub_04.html">키즈카페</a></li><li><a href="sub_04.html">실내 놀거리</a></li><li><a href="sub_04.html">야외 놀이터</a></li></ul></li><li><a href="board.html" class="is-active">게시판</a><ul class="lnb align5"><li><a href="board.html">후기</a></li><li><a href="board.html">인증샷</a></li><li><a href="board.html">질문하기</a></li><li><a href="board.html">자유게시판</a></li><li><a href="board.html">인기글</a></li><li><a href="board.html">공지사항</a></li></ul></li><li class="ai_recom"><a href="ai.html">ai추천</a><ul class="lnb align6"><li><a href="ai.html">맞춤 추천 받기</a></li><li><a href="ai.html">취향 분석</a></li><li><a href="ai.html">내 취향 저장</a></li><li><a href="ai.html">추천 기록</a></li><li><a href="ai.html">추천 설정</a></li></ul></li></ul></nav>
     </header>
     <section class="board-top-fullwidth">
@@ -58,12 +70,12 @@
     <section class="board-modern-page">
         <div class="scontainer">
 <div class="board-toolbar">
-                <ul class="board-modern-tabs">
-                    <li class="on"><a href="board.html">전체</a></li>
-                    <li><a href="board.html?type=review">후기</a></li>
-                    <li><a href="board.html?type=photo">인증샷</a></li>
-                    <li><a href="board.html?type=qna">질문</a></li>
-                    <li><a href="board.html?type=notice">공지</a></li>
+                <ul class="board-modern-tabs" id="boardTabs">
+                    <li class="on"><a href="#" data-cat="all">전체</a></li>
+                    <li><a href="#" data-cat="review">후기</a></li>
+                    <li><a href="#" data-cat="photo">인증샷</a></li>
+                    <li><a href="#" data-cat="qna">질문</a></li>
+                    <li><a href="#" data-cat="notice">공지</a></li>
                 </ul>
                 <form class="board-search" action="search.html" method="get">
                     <input type="search" name="q" placeholder="게시글 검색">
@@ -101,11 +113,22 @@
                             <span>RECENT POSTS</span>
                             <h4>최근 게시글</h4>
                         </div>
-                        <p>총 156개의 글</p>
+                        <p id="boardCount">총 156개의 글</p>
                     </div>
 
-                    <ul class="modern-board-list">
-                        <li>
+                    <ul class="modern-board-list" id="boardList">
+                        <li data-cat="notice">
+                            <a href="post_detail.html?title=Pickly 6월 정기 업데이트 안내">
+                                <em class="tag notice">공지</em>
+                                <div>
+                                    <strong>Pickly 6월 정기 업데이트 안내</strong>
+                                    <p>검색 필터와 추천 카드 디자인이 새롭게 개선되었어요.</p>
+                                    <span>Pickly · 2026.06.08 · 조회 904</span>
+                                </div>
+                                <b>31</b>
+                            </a>
+                        </li>
+                        <li data-cat="review" class="has-thumb">
                             <a href="post_detail.html?title=%ED%98%BC%EC%9E%90%20%EC%82%B0%EC%B1%85%20%EC%BD%94%EC%8A%A4%20%EB%8B%A4%EB%85%80%EC%99%94%EC%96%B4%EC%9A%94">
                                 <em class="tag review">후기</em>
                                 <div>
@@ -113,10 +136,23 @@
                                     <p>선유도 공원에서 천천히 걷고 왔는데 생각보다 조용해서 좋았어요.</p>
                                     <span>혜옥 · 2026.05.28 · 조회 482</span>
                                 </div>
+                                <img class="post-thumb" src="https://picsum.photos/seed/trail/220/160" alt="후기 사진">
                                 <b>12</b>
                             </a>
                         </li>
-                        <li>
+                        <li data-cat="review" class="has-thumb">
+                            <a href="post_detail.html?title=여수 밤바다 다녀온 후기">
+                                <em class="tag review">후기</em>
+                                <div>
+                                    <strong>여수 밤바다 다녀온 후기</strong>
+                                    <p>돌산대교 야경이 정말 예뻐서 시간 가는 줄 몰랐어요.</p>
+                                    <span>nightsea · 2026.06.01 · 조회 388</span>
+                                </div>
+                                <img class="post-thumb" src="https://picsum.photos/seed/nightsea/220/160" alt="후기 사진">
+                                <b>17</b>
+                            </a>
+                        </li>
+                        <li data-cat="qna">
                             <a href="post_detail.html?title=%EB%B9%84%20%EC%98%A4%EB%8A%94%20%EB%82%A0%20%EB%8D%B0%EC%9D%B4%ED%8A%B8%20%EC%9E%A5%EC%86%8C%20%EC%B6%94%EC%B2%9C%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94">
                                 <em class="tag qna">질문</em>
                                 <div>
@@ -127,7 +163,18 @@
                                 <b>8</b>
                             </a>
                         </li>
-                        <li>
+                        <li data-cat="qna">
+                            <a href="post_detail.html?title=아이랑 실내 데이트 추천">
+                                <em class="tag qna">질문</em>
+                                <div>
+                                    <strong>아이랑 가기 좋은 실내 장소 있을까요?</strong>
+                                    <p>비 오는 주말에 5살 아이랑 갈 만한 곳 추천 부탁드려요.</p>
+                                    <span>mom_kim · 2026.05.25 · 조회 412</span>
+                                </div>
+                                <b>9</b>
+                            </a>
+                        </li>
+                        <li data-cat="photo" class="has-thumb">
                             <a href="post_detail.html?title=%EC%84%9C%EC%9A%B8%EC%88%B2%20%ED%94%BC%ED%81%AC%EB%8B%89%20%EC%82%AC%EC%A7%84%20%EA%B3%B5%EC%9C%A0">
                                 <em class="tag photo">인증샷</em>
                                 <div>
@@ -135,10 +182,23 @@
                                     <p>날씨가 좋아서 피크닉 매트만 깔아도 완성되는 하루였어요.</p>
                                     <span>picnicday · 2026.05.17 · 조회 620</span>
                                 </div>
+                                <img class="post-thumb" src="https://picsum.photos/seed/forest/220/160" alt="인증샷 사진">
                                 <b>24</b>
                             </a>
                         </li>
-                        <li>
+                        <li data-cat="photo" class="has-thumb">
+                            <a href="post_detail.html?title=벚꽃 피크닉 인증샷">
+                                <em class="tag photo">인증샷</em>
+                                <div>
+                                    <strong>벚꽃 피크닉 인증샷 공유해요</strong>
+                                    <p>한강에서 찍은 사진인데 색감이 너무 예쁘게 나왔어요.</p>
+                                    <span>springpic · 2026.05.30 · 조회 540</span>
+                                </div>
+                                <img class="post-thumb" src="https://picsum.photos/seed/cherry/220/160" alt="인증샷 사진">
+                                <b>22</b>
+                            </a>
+                        </li>
+                        <li data-cat="free">
                             <a href="post_detail.html?title=%EC%9A%94%EC%A6%98%20%EB%A7%88%EC%9D%8C%EC%97%90%20%EB%93%A0%20%EC%B9%B4%ED%8E%98%20%EC%9D%B4%EC%95%BC%EA%B8%B0">
                                 <em class="tag free">자유</em>
                                 <div>
@@ -150,6 +210,7 @@
                             </a>
                         </li>
                     </ul>
+                    <p id="boardNoResult" class="board-noresult" style="display:none;">해당 카테고리의 글이 없습니다.</p>
 
                     <div class="board-pagination">
                         <a href="#" class="on">1</a>
@@ -190,7 +251,7 @@
     </section>
 <footer>
         <div class="foot">
-            <img src="images/foot_logo.png" alt="">
+            <img src="../assets/images/foot_logo.png" alt="">
             <div class="foot_tit">Pickly 더 나은 하루를 위한 추천 서비스</div>
             <div class="foot_add">
                 <p><strong>이메일</strong> contact@pickly.com</p>
@@ -206,5 +267,40 @@
             <div class="foot_copyright">© 2026 Pickly. Designed by KimHyeok.</div>
         </div>
     </footer>
+    <script>
+    (function () {
+      var tabs    = document.getElementById('boardTabs');
+      var items   = [].slice.call(document.querySelectorAll('#boardList > li'));
+      var noRes   = document.getElementById('boardNoResult');
+      var countEl = document.getElementById('boardCount');
+      var labels  = { all:'전체', review:'후기', photo:'인증샷', qna:'질문', notice:'공지', free:'자유' };
+
+      function apply(cat) {
+        var n = 0;
+        items.forEach(function (li) {
+          var show = (cat === 'all' || li.getAttribute('data-cat') === cat);
+          li.style.display = show ? '' : 'none';
+          if (show) n++;
+        });
+        if (noRes)   noRes.style.display = n ? 'none' : '';
+        if (countEl) countEl.textContent = (labels[cat] || '전체') + ' ' + n + '개의 글';
+        [].forEach.call(tabs.querySelectorAll('li'), function (li) { li.classList.remove('on'); });
+        var active = tabs.querySelector('a[data-cat="' + cat + '"]');
+        if (active) active.parentElement.classList.add('on');
+      }
+
+      tabs.addEventListener('click', function (e) {
+        var a = e.target.closest('a[data-cat]');
+        if (!a) return;
+        e.preventDefault();
+        apply(a.getAttribute('data-cat'));
+      });
+
+      // 다른 페이지에서 board.html?type=review 로 들어오면 해당 탭 자동 선택
+      var type  = new URLSearchParams(location.search).get('type');
+      var valid = ['review', 'photo', 'qna', 'notice'];
+      apply(valid.indexOf(type) !== -1 ? type : 'all');
+    })();
+    </script>
 </body>
 </html>

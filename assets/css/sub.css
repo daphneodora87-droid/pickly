@@ -727,7 +727,8 @@ footer{background:#f2f2f2;}
 .date-best-head-v2 span{color:#7468FF; font-size:15px; font-weight:800; letter-spacing:2.5px;}
 .date-best-head-v2 h3{font-size:44px; font-weight:800; letter-spacing:-1px;}
 .date-best-head-v2 p{font-size:18px; color:#666; line-height:1.5;}
-.date-best-head-v2 a{height:48px; padding:0 26px; box-shadow:0 12px 28px rgba(82, 92, 255, 0.16);}
+.date-best-head-v2 a{height:46px; padding:0 24px; background:#7B5CFF; color:#fff; box-shadow:none; font-weight:600;}
+.date-best-head-v2 a:hover{background:#6a4ff0;}
 
 .date-course-panel-v2{
   position:relative;
@@ -2496,14 +2497,13 @@ footer{background:#f2f2f2;}
 .compact-score-card{
   display:flex;
   align-items:center;
-  gap:10px;
-  min-width:188px;
-  height:44px;
-  padding:0 16px;
-  border-radius:999px;
-  background:#fff;
-  border:1px solid #d8eeee;
-  box-shadow:0 10px 26px rgba(69,83,112,0.06);
+  gap:8px;
+  min-width:auto;
+  height:auto;
+  padding:0;
+  border:none;
+  background:transparent;
+  box-shadow:none;
 }
 .compact-score-card strong{
   display:inline-flex;
@@ -2529,13 +2529,16 @@ footer{background:#f2f2f2;}
   margin:0 !important;
 }
 .compact-meta-list p{
-  height:36px;
-  padding:0 13px !important;
+  display:flex; align-items:center; gap:6px;
+  height:34px;
+  padding:0 14px !important;
   border-radius:999px;
-  background:#fff !important;
-  border:1px solid #d8eeee;
-  box-shadow:0 8px 22px rgba(69,83,112,0.04);
+  background:#f3f4f7 !important;
+  border:none;
+  box-shadow:none;
+  color:#555; font-size:14px;
 }
+.compact-meta-list p .material-symbols-outlined{font-size:18px; color:#9aa0b5;}
 .date-course-panel-compact .course-side-grid,
 .date-course-panel-compact .course-info-under-visual{display:none !important;}
 @media (max-width:1200px){

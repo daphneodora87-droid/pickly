@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>좋아요 / 싫어요</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f6f8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  }
+
+  .vote-group { display: flex; gap: 12px; }
+
+  .vote-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1.5px solid #d9dde2;
+    background: #ffffff;
+    color: #5b6471;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    transition: transform .12s ease, border-color .2s ease, color .2s ease, background .2s ease, box-shadow .2s ease;
+  }
+
+  .vote-btn:hover { border-color: #b9c0c9; }
+
+  /* 눌렀을 때(투표 상태) */
+  .vote-btn.like.active {
+    border-color: #19c3b2;
+    color: #11b3a3;
+    background: #ecfdfb;
+    box-shadow: 0 4px 12px rgba(25,195,178,.25);
+  }
+  .vote-btn.dislike.active {
+    border-color: #ff7a7a;
+    color: #f25555;
+    background: #fff0f0;
+    box-shadow: 0 4px 12px rgba(255,122,122,.25);
+  }
+
+  /* 클릭 순간 눌리는 효과 */
+  .vote-btn.pressing { transform: scale(.9); }
+
+  .vote-btn svg { width: 20px; height: 20px; transition: transform .15s ease; }
+  .vote-btn.active svg { transform: scale(1.15); }
+
+  /* 숫자 튀어오르는 효과 */
+  .count { display: inline-block; min-width: 14px; text-align: left; }
+  .count.bump { animation: bump .3s ease; }
+  @keyframes bump {
+    0%   { transform: translateY(0) scale(1); }
+    40%  { transform: translateY(-6px) scale(1.25); }
+    100% { transform: translateY(0) scale(1); }
+  }
+</style>
+</head>
+<body>
+  <div class="vote-group">
+    <button type="button" class="vote-btn like" id="likeBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg>
+      <span class="count" id="likeCount">12363</span>
+    </button>
+
+    <button type="button" class="vote-btn dislike" id="dislikeBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 14V2"/><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z"/></svg>
+      <span class="count" id="dislikeCount">360</span>
+    </button>
+  </div>
+
+<script>
+  // 1인당 1번만: like / dislike / null 중 하나의 상태만 유지
+  const state = {
+    voted: null,                  // 'like' | 'dislike' | null
+    base: { like: 12363, dislike: 360 }
+  };
+
+  const els = {
+    like:    { btn: document.getElementById('likeBtn'),    count: document.getElementById('likeCount') },
+    dislike: { btn: document.getElementById('dislikeBtn'), count: document.getElementById('dislikeCount') }
+  };
+
+  function render(bumped) {
+    for (const key of ['like', 'dislike']) {
+      const active = state.voted === key;
+      const value = state.base[key] + (active ? 1 : 0);
+      els[key].count.textContent = value;
+      els[key].btn.classList.toggle('active', active);
+      if (bumped === key) {
+        els[key].count.classList.remove('bump');
+        void els[key].count.offsetWidth; // 리플로우로 애니메이션 재시작
+        els[key].count.classList.add('bump');
+      }
+    }
+  }
+
+  function press(btn) {
+    btn.classList.add('pressing');
+    setTimeout(() => btn.classList.remove('pressing'), 120);
+  }
+
+  function vote(key, e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    press(els[key].btn);
+    // 같은 버튼 다시 누르면 취소(내려감), 다른 버튼 누르면 그쪽으로 이동
+    state.voted = state.voted === key ? null : key;
+    render(state.voted === key ? key : null);
+  }
+
+  els.like.btn.addEventListener('click', (e) => vote('like', e));
+  els.dislike.btn.addEventListener('click', (e) => vote('dislike', e));
+
+  render();
+</script>
+</body>
+</html>

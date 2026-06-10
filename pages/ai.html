@@ -27,6 +27,70 @@
         .ai-console.revealed .ai-prompt-panel{width:100%;}
         .ai-result-panel{position:static; width:100%; margin-top:24px; transform:none;}
       }
+
+      /* ===== 레이아웃 정돈 + 칩/버튼 위계 구분 ===== */
+      .ai-field-label{display:block; margin:0 0 12px; font-size:15px; font-weight:600; color:#555;}
+      .ai-signal-grid{gap:9px; margin-bottom:0;}
+
+      /* 칩: 연한 톤 (그라데이션 제거) → 버튼과 명확히 구분 */
+      .ai-signal-grid button{height:38px; padding:0 16px; border:1px solid #e2e2ec; border-radius:20px;
+        background:#fff; color:#666; font-weight:500;}
+      .ai-signal-grid button:hover{border-color:#bcb0ff; color:#6a4fff; background:#faf9ff;}
+      .ai-signal-grid button.active{border-color:#bcb0ff; background:rgba(123,92,255,0.10);
+        color:#6a4fff; font-weight:600;}
+
+      /* 액션 영역: 칩과 구분 위해 구분선 + 간격 */
+      .ai-console-actions{gap:12px; margin-top:26px; padding-top:24px; border-top:1px solid #eef0f4;}
+
+      /* 1차 CTA(추천 생성): 강한 그라데이션 + 아이콘 + 그림자 */
+      .ai-console-actions a{height:50px;}
+      .ai-console-actions a:first-child{padding:0 26px; gap:7px; font-size:16px; font-weight:700;
+        box-shadow:0 12px 26px rgba(123,92,255,0.28); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;}
+      .ai-console-actions a:first-child .material-symbols-outlined{font-size:20px;}
+      .ai-console-actions a:first-child:hover{transform:translateY(-1px); filter:brightness(1.04);
+        box-shadow:0 16px 32px rgba(123,92,255,0.34);}
+      /* 2차(취향 설정): 아웃라인 유지 */
+      .ai-console-actions a + a{font-weight:600;}
+
+      /* ===== 내 취향 설정 섹션 ===== */
+      .taste-section{padding:0 0 90px; background:#fff;}
+      .taste-card{position:relative; border:1px solid #dfecec; border-radius:28px; background:#fff;
+        box-shadow:0 20px 55px rgba(69,83,112,0.08); padding:36px 40px;}
+      .taste-group{display:grid; grid-template-columns:300px 1fr; gap:18px 40px; align-items:center;
+        padding:24px 0; border-bottom:1px solid #f0f2f5;}
+      .taste-group:first-child{padding-top:4px;}
+      .taste-group:last-of-type{border-bottom:none; padding-bottom:4px;}
+      .tg-head{display:flex; flex-wrap:wrap; align-items:center; gap:5px 9px; margin-bottom:0;}
+      .tg-head .material-symbols-outlined{font-size:21px; color:#7468FF;}
+      .tg-head h4{font-size:16px; font-weight:700; line-height:1.4;}
+      .tg-head .opt{flex-basis:100%; padding-left:30px; margin-top:-1px; font-size:12px; color:#aaa; font-weight:500;}
+      @media (max-width:760px){
+        .taste-group{grid-template-columns:1fr; gap:13px;}
+      }
+      .taste-chips{display:flex; flex-wrap:wrap; gap:9px;}
+      .taste-chips button{height:40px; padding:0 18px; border:1px solid #e2e2ec; border-radius:22px;
+        background:#fff; color:#666; font-family:inherit; font-size:15px; font-weight:500; cursor:pointer; transition:.18s;}
+      .taste-chips button:hover{border-color:#bcb0ff; color:#6a4fff; background:#faf9ff;}
+      .taste-chips button.active{border-color:#bcb0ff; background:rgba(123,92,255,0.10); color:#6a4fff; font-weight:600;}
+      .taste-range{display:flex; align-items:center; gap:18px;}
+      .taste-range input[type=range]{flex:1; accent-color:#7468FF; height:5px; cursor:pointer;}
+      .taste-range .rv{min-width:104px; text-align:right; font-weight:700; color:#6a4fff; font-size:15px;}
+      .taste-foot{display:flex; align-items:center; justify-content:flex-end; gap:14px; margin-top:32px;}
+      .taste-foot .saved{margin-right:auto; display:none; align-items:center; gap:6px; color:#1Fb39a; font-weight:600; font-size:15px;}
+      .taste-foot .saved.show{display:inline-flex;}
+      .taste-foot .reset{height:50px; padding:0 24px; border-radius:30px; border:1px solid #d8d8e2; background:#fff;
+        color:#666; font-family:inherit; font-size:15px; font-weight:600; cursor:pointer; transition:.18s;}
+      .taste-foot .reset:hover{border-color:#bcb0ff; color:#6a4fff;}
+      .taste-foot .save{height:50px; padding:0 30px; border:none; border-radius:30px; color:#fff;
+        background:linear-gradient(90deg,#7B5CFF,#2ED1C2); font-family:inherit; font-size:16px; font-weight:700;
+        cursor:pointer; display:inline-flex; align-items:center; gap:7px; box-shadow:0 12px 26px rgba(123,92,255,0.28); transition:.18s;}
+      .taste-foot .save:hover{transform:translateY(-1px); box-shadow:0 16px 32px rgba(123,92,255,0.34);}
+      .taste-foot .save .material-symbols-outlined{font-size:20px;}
+      @media (max-width:900px){
+        .taste-card{padding:24px;}
+        .taste-foot{flex-wrap:wrap;}
+        .taste-foot .save,.taste-foot .reset{flex:1; justify-content:center;}
+      }
     </style>
 </head>
 <body>
@@ -84,19 +148,19 @@
                         <span>오늘은 어떤 하루가 필요해요?</span>
                         <textarea placeholder="예: 퇴근 후 2시간 정도, 조용하지만 분위기 있는 데이트 코스 추천해줘. 너무 멀지 않고 사진도 예쁘게 나왔으면 좋겠어."></textarea>
                     </label>
+                    <span class="ai-field-label">어떤 상황인가요? (복수 선택 가능)</span>
                     <div class="ai-signal-grid">
                         <button type="button">혼자</button>
-                        <button type="button" class="active">데이트</button>
+                        <button type="button">데이트</button>
                         <button type="button">가족</button>
                         <button type="button">아이와</button>
-                        <button type="button" class="active">저녁</button>
+                        <button type="button">저녁</button>
                         <button type="button">실내</button>
                         <button type="button">산책</button>
                         <button type="button">사진</button>
                     </div>
                     <div class="ai-console-actions">
-                        <a href="search.html?ai=true">추천 생성하기</a>
-                        <a href="ai.html?mode=settings">취향 설정</a>
+                        <a href="search.html?ai=true"><span class="material-symbols-outlined">auto_awesome</span>추천 생성하기</a>
                     </div>
                 </div>
                 <div class="ai-result-panel">
@@ -112,6 +176,94 @@
                         <li><em>03</em><span>서울숲 노을 산책</span><strong>18:30</strong></li>
                     </ol>
                     <a href="place_detail.html?title=%EC%84%B1%EC%88%98%20%EB%85%B8%EC%9D%84%20%EA%B0%90%EC%84%B1%20%EC%BD%94%EC%8A%A4">자세히보기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="taste-section" id="taste">
+        <div class="scontainer">
+            <div class="ai-section-title">
+                <span>MY TASTE</span>
+                <h3>내 취향 설정</h3>
+            </div>
+            <div class="taste-card">
+                <div class="taste-group">
+                    <div class="tg-head"><span class="material-symbols-outlined">group</span><h4>주로 누구와 함께하나요?</h4><span class="opt">복수 선택 가능</span></div>
+                    <div class="taste-chips" data-group="who">
+                        <button type="button">혼자</button>
+                        <button type="button">데이트</button>
+                        <button type="button">가족</button>
+                        <button type="button">아이와</button>
+                        <button type="button">친구</button>
+                    </div>
+                </div>
+                <div class="taste-group">
+                    <div class="tg-head"><span class="material-symbols-outlined">favorite</span><h4>어떤 분위기를 좋아하나요?</h4><span class="opt">복수 선택 가능</span></div>
+                    <div class="taste-chips" data-group="mood">
+                        <button type="button">힐링·재충전</button>
+                        <button type="button">인스타 감성</button>
+                        <button type="button">설레는</button>
+                        <button type="button">혼자만의 시간</button>
+                        <button type="button">소확행</button>
+                        <button type="button">활기찬</button>
+                        <button type="button">차분한</button>
+                    </div>
+                </div>
+                <div class="taste-group">
+                    <div class="tg-head"><span class="material-symbols-outlined">interests</span><h4>선호하는 활동 유형은요?</h4><span class="opt">복수 선택 가능</span></div>
+                    <div class="taste-chips" data-group="type">
+                        <button type="button">카페</button>
+                        <button type="button">맛집</button>
+                        <button type="button">문화·전시</button>
+                        <button type="button">야외·산책</button>
+                        <button type="button">체험·공방</button>
+                        <button type="button">실내활동</button>
+                        <button type="button">쇼핑</button>
+                        <button type="button">키즈</button>
+                    </div>
+                </div>
+                <div class="taste-group">
+                    <div class="tg-head"><span class="material-symbols-outlined">location_on</span><h4>주로 활동하는 지역은요?</h4><span class="opt">복수 선택 가능</span></div>
+                    <div class="taste-chips" data-group="region">
+                        <button type="button">서울</button>
+                        <button type="button">경기</button>
+                        <button type="button">인천</button>
+                        <button type="button">부산</button>
+                        <button type="button">강원</button>
+                        <button type="button">제주</button>
+                        <button type="button">전국 어디든</button>
+                    </div>
+                </div>
+                <div class="taste-group">
+                    <div class="tg-head"><span class="material-symbols-outlined">schedule</span><h4>선호하는 시간대는요?</h4><span class="opt">복수 선택 가능</span></div>
+                    <div class="taste-chips" data-group="time">
+                        <button type="button">낮</button>
+                        <button type="button">저녁</button>
+                        <button type="button">야간</button>
+                        <button type="button">주말</button>
+                    </div>
+                </div>
+                <div class="taste-group">
+                    <div class="tg-head"><span class="material-symbols-outlined">directions_walk</span><h4>이동 거리는 어느 정도까지 괜찮나요?</h4></div>
+                    <div class="taste-range">
+                        <input type="range" min="1" max="60" value="15" id="taste-distance">
+                        <span class="rv" data-for="taste-distance">15km 이내</span>
+                    </div>
+                </div>
+                <div class="taste-group">
+                    <div class="tg-head"><span class="material-symbols-outlined">payments</span><h4>1인당 예산은요?</h4></div>
+                    <div class="taste-chips" data-group="budget" data-single="true">
+                        <button type="button">무료</button>
+                        <button type="button">~1만원</button>
+                        <button type="button">~3만원</button>
+                        <button type="button">~5만원</button>
+                        <button type="button">상관없음</button>
+                    </div>
+                </div>
+                <div class="taste-foot">
+                    <span class="saved"><span class="material-symbols-outlined">check_circle</span>취향이 저장되었어요</span>
+                    <button type="button" class="reset">초기화</button>
+                    <button type="button" class="save"><span class="material-symbols-outlined">check</span>취향 저장하기</button>
                 </div>
             </div>
         </div>
@@ -242,6 +394,58 @@
       }
 
       genBtn.addEventListener('click', generate);
+    })();
+    </script>
+
+    <!-- 내 취향 설정 -->
+    <script>
+    (function(){
+      var sec = document.getElementById('taste');
+      if (!sec) return;
+
+      // 칩 선택 (그룹별 복수, data-single이면 단일 선택)
+      sec.querySelectorAll('.taste-chips').forEach(function(group){
+        var single = group.dataset.single === 'true';
+        group.querySelectorAll('button').forEach(function(b){
+          b.addEventListener('click', function(){
+            if (single){
+              var on = b.classList.contains('active');
+              group.querySelectorAll('button').forEach(function(o){ o.classList.remove('active'); });
+              if (!on) b.classList.add('active');
+            } else {
+              b.classList.toggle('active');
+            }
+            hideSaved();
+          });
+        });
+      });
+
+      // 거리 슬라이더
+      var dist = document.getElementById('taste-distance');
+      var distOut = sec.querySelector('.rv[data-for="taste-distance"]');
+      function updDist(){
+        if (!dist || !distOut) return;
+        distOut.textContent = (+dist.value >= 60) ? '거리 상관없음' : (dist.value + 'km 이내');
+      }
+      if (dist){ dist.addEventListener('input', function(){ updDist(); hideSaved(); }); updDist(); }
+
+      var saved = sec.querySelector('.taste-foot .saved');
+      function hideSaved(){ if (saved) saved.classList.remove('show'); }
+
+      // 저장
+      var saveBtn = sec.querySelector('.taste-foot .save');
+      if (saveBtn) saveBtn.addEventListener('click', function(){
+        if (saved){ saved.classList.add('show'); }
+        try { sec.scrollIntoView({behavior:'smooth', block:'nearest'}); } catch(e){}
+      });
+
+      // 초기화
+      var resetBtn = sec.querySelector('.taste-foot .reset');
+      if (resetBtn) resetBtn.addEventListener('click', function(){
+        sec.querySelectorAll('.taste-chips button.active').forEach(function(b){ b.classList.remove('active'); });
+        if (dist){ dist.value = 15; updDist(); }
+        hideSaved();
+      });
     })();
     </script>
 </body>

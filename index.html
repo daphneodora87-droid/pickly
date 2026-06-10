@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/font.css">
-    <link rel="stylesheet" href="assets/css/style.css?v=2">
+    <link rel="stylesheet" href="assets/css/style.css?v=3">
 
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     
     <!-- 구글 아이콘 CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+
+    <!-- 메인 공통 검색 컴포넌트 -->
+    <link rel="stylesheet" href="assets/css/common-search.css">
 </head>
 
 <body>
@@ -239,7 +242,87 @@
             </div>
         </div>
     </div>
+    <section class="common-search-wrap" aria-label="Pickly 공통 검색">
+        <div class="scontainer">
+            <div class="common-search-card">
+                <div class="common-search-copy">
+                    <span>SMART SEARCH</span>
+                    <h3>오늘 어디로 가볼까요?</h3>
+                    <p>지역, 기분, 활동 유형을 골라 Pickly 추천을 더 빠르게 찾아보세요.</p>
+                </div>
+
+                <form class="common-search-form" action="pages/search.html" method="get">
+                    <label class="common-keyword-box">
+                        <span class="material-symbols-outlined">search</span>
+                        <input type="search" name="q" placeholder="장소명, 지역, 키워드를 입력하세요">
+                    </label>
+                    <button type="submit" class="common-search-submit">검색</button>
+                    <button type="button" class="common-filter-toggle" aria-expanded="false">
+                        <span class="material-symbols-outlined">tune</span>맞춤 필터
+                    </button>
+                </form>
+
+                <div class="common-filter-panel">
+                    <div class="common-filter-grid">
+                        <div class="common-filter-item">
+                            <span class="filter-label">지역</span>
+                            <div class="common-custom-select" data-name="region" data-value="">
+                                <button type="button" class="common-select-trigger" aria-expanded="false"><span>전체 지역</span></button>
+                                <ul class="common-select-menu">
+                                    <li><button type="button" class="common-select-option is-selected" data-value=""><span class="material-symbols-outlined">check</span><em>전체 지역</em></button></li><li><button type="button" class="common-select-option" data-value="서울"><span class="material-symbols-outlined">check</span><em>서울</em></button></li><li><button type="button" class="common-select-option" data-value="경기"><span class="material-symbols-outlined">check</span><em>경기</em></button></li><li><button type="button" class="common-select-option" data-value="인천"><span class="material-symbols-outlined">check</span><em>인천</em></button></li><li><button type="button" class="common-select-option" data-value="부산"><span class="material-symbols-outlined">check</span><em>부산</em></button></li><li><button type="button" class="common-select-option" data-value="대구"><span class="material-symbols-outlined">check</span><em>대구</em></button></li><li><button type="button" class="common-select-option" data-value="광주"><span class="material-symbols-outlined">check</span><em>광주</em></button></li><li><button type="button" class="common-select-option" data-value="대전"><span class="material-symbols-outlined">check</span><em>대전</em></button></li><li><button type="button" class="common-select-option" data-value="울산"><span class="material-symbols-outlined">check</span><em>울산</em></button></li><li><button type="button" class="common-select-option" data-value="세종"><span class="material-symbols-outlined">check</span><em>세종</em></button></li><li><button type="button" class="common-select-option" data-value="강원"><span class="material-symbols-outlined">check</span><em>강원</em></button></li><li><button type="button" class="common-select-option" data-value="충북"><span class="material-symbols-outlined">check</span><em>충북</em></button></li><li><button type="button" class="common-select-option" data-value="충남"><span class="material-symbols-outlined">check</span><em>충남</em></button></li><li><button type="button" class="common-select-option" data-value="전북"><span class="material-symbols-outlined">check</span><em>전북</em></button></li><li><button type="button" class="common-select-option" data-value="전남"><span class="material-symbols-outlined">check</span><em>전남</em></button></li><li><button type="button" class="common-select-option" data-value="경북"><span class="material-symbols-outlined">check</span><em>경북</em></button></li><li><button type="button" class="common-select-option" data-value="경남"><span class="material-symbols-outlined">check</span><em>경남</em></button></li><li><button type="button" class="common-select-option" data-value="제주"><span class="material-symbols-outlined">check</span><em>제주</em></button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="common-filter-item">
+                            <span class="filter-label">기분</span>
+                            <div class="common-custom-select" data-name="mood" data-value="">
+                                <button type="button" class="common-select-trigger" aria-expanded="false"><span>오늘 기분 선택</span></button>
+                                <ul class="common-select-menu">
+                                    <li><button type="button" class="common-select-option is-selected" data-value=""><span class="material-symbols-outlined">check</span><em>오늘 기분 선택</em></button></li><li><button type="button" class="common-select-option" data-value="힐링재충전"><span class="material-symbols-outlined">check</span><em>힐링재충전</em></button></li><li><button type="button" class="common-select-option" data-value="인스타감성"><span class="material-symbols-outlined">check</span><em>인스타감성</em></button></li><li><button type="button" class="common-select-option" data-value="설레는"><span class="material-symbols-outlined">check</span><em>설레는</em></button></li><li><button type="button" class="common-select-option" data-value="혼자만의시간"><span class="material-symbols-outlined">check</span><em>혼자만의시간</em></button></li><li><button type="button" class="common-select-option" data-value="소확행"><span class="material-symbols-outlined">check</span><em>소확행</em></button></li><li><button type="button" class="common-select-option" data-value="에너지업"><span class="material-symbols-outlined">check</span><em>에너지업</em></button></li><li><button type="button" class="common-select-option" data-value="차분한"><span class="material-symbols-outlined">check</span><em>차분한</em></button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="common-filter-item">
+                            <span class="filter-label">활동 유형</span>
+                            <div class="common-custom-select" data-name="type" data-value="">
+                                <button type="button" class="common-select-trigger" aria-expanded="false"><span>활동 유형 선택</span></button>
+                                <ul class="common-select-menu">
+                                    <li><button type="button" class="common-select-option is-selected" data-value=""><span class="material-symbols-outlined">check</span><em>활동 유형 선택</em></button></li><li><button type="button" class="common-select-option" data-value="카페"><span class="material-symbols-outlined">check</span><em>카페</em></button></li><li><button type="button" class="common-select-option" data-value="맛집"><span class="material-symbols-outlined">check</span><em>맛집</em></button></li><li><button type="button" class="common-select-option" data-value="문화전시"><span class="material-symbols-outlined">check</span><em>문화 / 전시</em></button></li><li><button type="button" class="common-select-option" data-value="야외산책"><span class="material-symbols-outlined">check</span><em>야외 / 산책</em></button></li><li><button type="button" class="common-select-option" data-value="체험공방"><span class="material-symbols-outlined">check</span><em>체험 / 공방</em></button></li><li><button type="button" class="common-select-option" data-value="실내활동"><span class="material-symbols-outlined">check</span><em>실내활동</em></button></li><li><button type="button" class="common-select-option" data-value="쇼핑"><span class="material-symbols-outlined">check</span><em>쇼핑</em></button></li><li><button type="button" class="common-select-option" data-value="키즈"><span class="material-symbols-outlined">check</span><em>키즈</em></button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="common-filter-item">
+                            <span class="filter-label">시간대</span>
+                            <div class="common-custom-select" data-name="time" data-value="">
+                                <button type="button" class="common-select-trigger" aria-expanded="false"><span>시간대 선택</span></button>
+                                <ul class="common-select-menu">
+                                    <li><button type="button" class="common-select-option is-selected" data-value=""><span class="material-symbols-outlined">check</span><em>시간대 선택</em></button></li><li><button type="button" class="common-select-option" data-value="낮"><span class="material-symbols-outlined">check</span><em>낮</em></button></li><li><button type="button" class="common-select-option" data-value="저녁"><span class="material-symbols-outlined">check</span><em>저녁</em></button></li><li><button type="button" class="common-select-option" data-value="야간"><span class="material-symbols-outlined">check</span><em>야간</em></button></li><li><button type="button" class="common-select-option" data-value="주중"><span class="material-symbols-outlined">check</span><em>주중</em></button></li><li><button type="button" class="common-select-option" data-value="주말"><span class="material-symbols-outlined">check</span><em>주말</em></button></li><li><button type="button" class="common-select-option" data-value="짧은외출"><span class="material-symbols-outlined">check</span><em>짧은 외출</em></button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="common-chip-row" data-chip-group="keyword">
+                        <button type="button" data-value="분위기 좋은 곳">#분위기 좋은 곳</button>
+                        <button type="button" data-value="사진 스팟">#사진 스팟</button>
+                        <button type="button" data-value="가볍게 즐기기">#가볍게 즐기기</button>
+                        <button type="button" data-value="실내 놀거리">#실내 놀거리</button>
+                        <button type="button" data-value="맛집 데이트">#맛집 데이트</button>
+                    </div>
+
+                    <div class="common-filter-bottom">
+                        <p><span class="material-symbols-outlined">auto_awesome</span>선택한 조건은 검색 결과 페이지로 연결돼요.</p>
+                        <button type="button" class="common-filter-apply">조건 적용하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <div class="section_02">
+        <div class="sec02-deco" aria-hidden="true">
+            <i class="dia1"></i><i class="dia2"></i><i class="dia3"></i><i class="dia4"></i><i class="dia5"></i>
+            <i class="dia6"></i><i class="dia7"></i><i class="dia8"></i><i class="dia9"></i>
+        </div>
         <div id="sectionbox">
             <h3>오늘의 추천 <span>LIST</span><img src="assets/images/icon_tit3.png" alt=""></h3>
             <div class="rec_list">
@@ -513,6 +596,119 @@
 
         rec.addEventListener('click',  function (e) { vote('rec',  rec,  e); });
         nrec.addEventListener('click', function (e) { vote('nrec', nrec, e); });
+      });
+    })();
+    </script>
+
+    <!-- 메인 공통 검색 컴포넌트 -->
+    <script>
+    (function(){
+      const wraps = document.querySelectorAll('.common-search-wrap');
+      wraps.forEach(function(wrap){
+        const form = wrap.querySelector('.common-search-form');
+        const toggle = wrap.querySelector('.common-filter-toggle');
+        const panel = wrap.querySelector('.common-filter-panel');
+        const apply = wrap.querySelector('.common-filter-apply');
+        const keywordInput = wrap.querySelector('input[name="q"]');
+        const chipButtons = wrap.querySelectorAll('.common-chip-row button');
+        const customSelects = wrap.querySelectorAll('.common-custom-select');
+
+        if(toggle && panel){
+          toggle.addEventListener('click', function(){
+            const isOpen = wrap.classList.toggle('is-filter-open');
+            toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            if(!isOpen){
+              customSelects.forEach(function(select){
+                select.classList.remove('is-open');
+                const trigger = select.querySelector('.common-select-trigger');
+                if(trigger) trigger.setAttribute('aria-expanded','false');
+              });
+            }
+          });
+        }
+
+        customSelects.forEach(function(select){
+          const trigger = select.querySelector('.common-select-trigger');
+          const triggerText = trigger ? trigger.querySelector('span') : null;
+          const options = select.querySelectorAll('.common-select-option');
+
+          if(trigger){
+            trigger.addEventListener('click', function(e){
+              e.preventDefault();
+              e.stopPropagation();
+              customSelects.forEach(function(other){
+                if(other !== select){
+                  other.classList.remove('is-open');
+                  const otherTrigger = other.querySelector('.common-select-trigger');
+                  if(otherTrigger) otherTrigger.setAttribute('aria-expanded','false');
+                }
+              });
+              const isOpen = select.classList.toggle('is-open');
+              trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+          }
+
+          options.forEach(function(option){
+            option.addEventListener('click', function(e){
+              e.preventDefault();
+              e.stopPropagation();
+              options.forEach(function(other){ other.classList.remove('is-selected'); });
+              option.classList.add('is-selected');
+              select.dataset.value = option.dataset.value || '';
+              if(triggerText){
+                const label = option.querySelector('em');
+                triggerText.textContent = label ? label.textContent : option.textContent.trim();
+              }
+              select.classList.remove('is-open');
+              if(trigger) trigger.setAttribute('aria-expanded','false');
+            });
+          });
+        });
+
+        chipButtons.forEach(function(btn){
+          btn.addEventListener('click', function(){
+            chipButtons.forEach(function(other){ if(other !== btn) other.classList.remove('active'); });
+            btn.classList.toggle('active');
+            if(btn.classList.contains('active') && keywordInput && !keywordInput.value.trim()){
+              keywordInput.value = btn.dataset.value;
+            }
+          });
+        });
+
+        function goSearch(){
+          const params = new URLSearchParams();
+          const q = keywordInput ? keywordInput.value.trim() : '';
+          if(q) params.set('q', q);
+          customSelects.forEach(function(select){
+            const value = select.dataset.value || '';
+            const name = select.dataset.name;
+            if(name && value) params.set(name, value);
+          });
+          const activeChip = wrap.querySelector('.common-chip-row button.active');
+          if(activeChip) params.set('tag', activeChip.dataset.value);
+          const url = 'pages/search.html' + (params.toString() ? '?' + params.toString() : '');
+          window.location.href = url;
+        }
+
+        if(form){
+          form.addEventListener('submit', function(e){
+            e.preventDefault();
+            goSearch();
+          });
+        }
+        if(apply){
+          apply.addEventListener('click', goSearch);
+        }
+
+        document.addEventListener('click', function(e){
+          if(!wrap.contains(e.target)){
+            customSelects.forEach(function(select){
+              select.classList.remove('is-open');
+              const trigger = select.querySelector('.common-select-trigger');
+              if(trigger) trigger.setAttribute('aria-expanded','false');
+            });
+          }
+        });
       });
     })();
     </script>

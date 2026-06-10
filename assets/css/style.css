@@ -203,7 +203,21 @@ header .topset .login_box a:nth-child(3){ padding-left:18px;}
 
 
 /**********************************2번째 섹션 ********************************/
-.section_02{background:#f2f2f2 url(../images/section3_bg.png) no-repeat }
+.section_02{background:#ffffff; position:relative; overflow:hidden;}
+
+/* 섹션3 장식 다이아몬드 (배경 이미지 대체, 순수 CSS) */
+.section_02 > #sectionbox{position:relative; z-index:2;}
+.sec02-deco{position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden;}
+.sec02-deco i{position:absolute; display:block; transform:rotate(45deg); box-sizing:border-box;}
+.sec02-deco .dia1{left:60px;  top:66px;  width:57px; height:57px; border:5px solid #a8e6dc; border-radius:11px;}   /* 좌상단 민트 */
+.sec02-deco .dia2{left:174px; top:236px; width:34px; height:34px; border:6px solid #9ec3fb; border-radius:7px;}    /* 좌측 블루 */
+.sec02-deco .dia3{right:106px;top:214px; width:52px; height:52px; border:6px solid #b3d1f7; border-radius:10px;}   /* 우상단 블루 */
+.sec02-deco .dia4{left:1px;   top:684px; width:55px; height:55px; border:5px solid #c9bcf2; border-radius:10px;}   /* 좌하단 보라 */
+.sec02-deco .dia5{right:1px;  top:909px; width:54px; height:54px; border:5px solid #a8e6dc; border-radius:10px;}   /* 우하단 민트 */
+.sec02-deco .dia6{left:81px;  top:669px; width:15px; height:15px; background:#dedede; border-radius:4px;}          /* 회색 점 */
+.sec02-deco .dia7{right:413px;top:98px;  width:15px; height:15px; background:#dedede; border-radius:4px;}
+.sec02-deco .dia8{right:67px; top:322px; width:15px; height:15px; background:#dedede; border-radius:4px;}
+.sec02-deco .dia9{right:80px; top:683px; width:15px; height:15px; background:#dedede; border-radius:4px;}
 
 .section_02 h3{font-size:50px; font-weight:300; padding-bottom:60px;}
 .section_02 h3 span{font-weight:800; margin-right:18px;}
@@ -224,7 +238,7 @@ header .topset .login_box a:nth-child(3){ padding-left:18px;}
 .list_box p strong img{margin-right:5px;}
 .list_box .list_txt .star{ background:#2ED1C2; color:#fff;padding:10px 15px; border-radius:20px; align-items:center; display: flex;height:35px;font-size:14px; font-weight:500;width:90px; text-align:center;}
 
-.list_setting{position: relative;background:#fff; display: flex; align-items: center; z-index:0;justify-content: space-between;align-items: center;padding:22px 45px; border-radius:100px;}
+.list_setting{position: relative;background:linear-gradient(45deg, #f5f2ff, #ecfbf8); display: flex; align-items: center; z-index:0;justify-content: space-between;align-items: center;padding:22px 45px; border-radius:100px;}
 .list_setting::before {content: ""; position: absolute; inset: 0; padding: 1px; z-index:-1;border-radius: 100px; background: linear-gradient(45deg, #7B5CFF, #2ED1C2);  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor;mask-composite: exclude;}
 
 
@@ -306,7 +320,7 @@ header .topset .login_box a:nth-child(3){ padding-left:18px;}
 
 
 /**********************************3번째 섹션 ********************************/
-.section_03{background:#f2f2f2 url(../images/bg_section4.png) no-repeat top / cover; height:813px;}
+.section_03{background:#ffffff url(../images/bg_section4.png) no-repeat top / cover; height:813px;}
 
 .review{display: flex; color:#fff;}
 .review_tit{width: 287px;margin:50px 68px 0 125px;}
@@ -338,14 +352,15 @@ header .topset .login_box a:nth-child(3){ padding-left:18px;}
 .review_list .rlist .rlist_box .rdate{}
 .review_list .rlist .rlist_box .rdate p{ font-size:14px; display: flex; align-items: center;}
 .review_list .rlist .rlist_box .rdate p span{ font-size:17px; margin-right:4px;line-height:24px;}
-.review_list .rlist .rlist_box .rdate p span.date{ font-size:16px; margin-right:4px;}
+
+.review_list.rlist .rlist_box .rdate p span.date{ font-size:16px; margin-right:4px;}
 
 .rdate_box{display: flex; justify-content:space-between;}
 .rdate_box p span.add{font-size:5100px; } 
 
 
 /******************************푸터***********************/
-footer{background:#f2f2f2;}
+footer{background:#ffffff;}
 .foot{text-align: center; padding:60px 0; color:#777; font-size:16px; width: 1400px; margin:0 auto;}
 .foot img{margin-bottom: 12px;}
 .foot_tit{font-weight: 600; margin-bottom:12px; }

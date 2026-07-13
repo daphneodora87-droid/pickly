@@ -314,6 +314,7 @@ footer{background:#f2f2f2;}
 .date-course-panel{display:grid; grid-template-columns:500px 1fr; gap:34px; padding:30px; border:1px solid #d8eeee; border-radius:26px; background:linear-gradient(135deg, #ffffff 0%, #F6FAFA 58%, #EEF7FF 100%);}
 .date-course-visual{position:relative; display:block; height:360px; border-radius:22px; overflow:hidden; background:#E5F2F1;}
 .date-course-visual img{display:block; width:235%; max-width:none; height:235%; object-fit:cover; transform:translate(-4%, -4%);}
+.date-course-visual.is-single img{width:100%; max-width:100%; height:100%; transform:none;}
 .date-course-visual::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(32,26,69,0.58) 100%);}
 .visual-badge{position:absolute; left:24px; right:24px; bottom:22px; z-index:1; color:#fff;}
 .visual-badge strong{display:block; font-size:28px; font-weight:700; margin-bottom:8px;}
@@ -750,6 +751,7 @@ footer{background:#f2f2f2;}
 .date-course-visual-v2{height:430px; border-radius:26px; box-shadow:0 18px 42px rgba(46, 58, 86, 0.15);}
 .date-course-visual-v2 img{transition:transform 0.6s ease;}
 .date-course-visual-v2:hover img{transform:translate(-4%, -4%) scale(1.04);}
+.date-course-visual-v2.is-single:hover img{transform:scale(1.04);}
 .date-course-visual-v2::after{background:linear-gradient(180deg, rgba(0,0,0,0) 34%, rgba(32,26,69,0.75) 100%);}
 .date-course-visual-v2 .visual-badge{left:28px; right:28px; bottom:28px;}
 .date-course-visual-v2 .visual-badge em{display:inline-block; margin-bottom:10px; padding:6px 12px; border-radius:20px; background:rgba(255,255,255,0.22); color:#fff; font-style:normal; font-size:13px; font-weight:700; backdrop-filter:blur(5px);}
